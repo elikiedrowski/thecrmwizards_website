@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The CRM Wizards - Enterprise Salesforce and AI solutions delivered in 1/10th the time. Deep expertise, massive results.">
+    <meta name="keywords" content="Salesforce, AI Development, CRM, Custom Development, Enterprise Software">
+    <title>The CRM Wizards - Enterprise Software at the Speed of AI</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="The CRM Wizards Logo" class="logo">
+                <span class="company-name">The CRM Wizards</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                
+                <li class="nav-dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Industries
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="industries/field-services.html" class="dropdown-item">
+                            <h4>🔧 Field Services</h4>
+                            <p>Gloves-on mobile apps, Voice-to-CRM, offline capability</p>
+                        </a>
+                        <a href="industries/high-growth-tech.html" class="dropdown-item">
+                            <h4>🚀 High-Growth Tech</h4>
+                            <p>Fractional RevOps for VC-backed startups</p>
+                        </a>
+                        <a href="industries/professional-services.html" class="dropdown-item">
+                            <h4>💼 Professional Services</h4>
+                            <p>Project management & resource delivery</p>
+                        </a>
+                        <a href="industries/hospitality-wellness.html" class="dropdown-item">
+                            <h4>🏨 Hospitality & Wellness</h4>
+                            <p>AI receptionists, booking engines, community portals</p>
+                        </a>
+                        <a href="industries/non-profits.html" class="dropdown-item">
+                            <h4>❤️ Non-Profits</h4>
+                            <p>High-impact donor tools on lean budgets</p>
+                        </a>
+                    </div>
+                </li>
+                
+                <li><a href="capabilities.html" class="nav-link">Capabilities</a></li>
+                <li><a href="methodology.html" class="nav-link">10x Methodology</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 10px 20px;">Book Discovery Call</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3 Variations -->
+    <section class="hero">
+        <div class="ai-particles" id="ai-particles"></div>
+        
+        <div class="hero-content fade-in">
+            <div id="hero-badge" class="hero-badge">🚀 AI-Powered Development</div>
+            <h1 id="hero-title">Enterprise Software at the Speed of AI</h1>
+            <p id="hero-subtitle">We are The CRM Wizards. We combine deep Salesforce certification with next-gen AI development to deliver custom solutions in 1/10th the time of traditional consultancies.</p>
+            
+            <div class="btn-group">
+                <a href="#methodology" class="btn btn-secondary" id="hero-primary-btn">See How We Do It</a>
+                <a href="#industries" class="btn btn-white" id="hero-secondary-btn">Explore Industries</a>
+            </div>
+        </div>
+        
+        <!-- Hero Switcher for Testing -->
+        <div class="hero-switcher">
+            <small style="display: block; margin-bottom: 0.5rem; color: rgba(255,255,255,0.8);">Test Hero Options:</small>
+            <button onclick="switchHero('A')" class="active">Option A: Speed</button>
+            <button onclick="switchHero('B')">Option B: Hybrid</button>
+            <button onclick="switchHero('C')">Option C: Magic</button>
+        </div>
+    </section>
+
+    <!-- Value Shift Section -->
+    <section class="section" style="background: var(--neutral);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">THE VALUE SHIFT</div>
+                <h2 class="section-title">Why the Old Way of Consulting is Broken</h2>
+                <p class="section-description">Traditional software projects take months and cost a fortune in developer hours. We changed the model. By leveraging AI-augmented development, we deploy enterprise-grade Salesforce and custom web/mobile solutions in weeks.</p>
+            </div>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <div class="comparison-label">Traditional Timeline</div>
+                    <div class="comparison-value">6</div>
+                    <p>Months</p>
+                </div>
+                <div class="comparison-item highlight">
+                    <div class="comparison-label">CRM Wizards Timeline</div>
+                    <div class="comparison-value">3</div>
+                    <p>Weeks</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-label">Speed Improvement</div>
+                    <div class="comparison-value">10</div>
+                    <p>Times Faster</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hybrid Advantage Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">THE HYBRID ADVANTAGE</div>
+                <h2 class="section-title">On-Platform Security. Off-Platform Flexibility.</h2>
+                <p class="section-description">We don't just configure Salesforce. We build custom mobile and web applications that integrate seamlessly with your CRM.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature slide-up">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h4>On-Platform Mastery</h4>
+                        <p>Deep customization within Salesforce for your power users. Certified experts who know every capability.</p>
+                    </div>
+                </div>
+                
+                <div class="feature slide-up">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-content">
+                        <h4>Off-Platform Freedom</h4>
+                        <p>Web and mobile apps for your customers, field workers, or partners—no Salesforce license required.</p>
+                    </div>
+                </div>
+                
+                <div class="feature slide-up">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-content">
+                        <h4>AI Integration</h4>
+                        <p>Voice assistants, intelligent automation, and predictive analytics built into your workflows.</p>
+                    </div>
+                </div>
+                
+                <div class="feature slide-up">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h4>Enterprise Security</h4>
+                        <p>Bank-level security with Salesforce's trusted infrastructure and our secure custom development practices.</p>
+                    </div>
+                </div>
+                
+                <div class="feature slide-up">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h4>Mobile-First Design</h4>
+                        <p>Apps that work offline, sync seamlessly, and provide a native experience on any device.</p>
+                    </div>
+                </div>
+                
+                <div class="feature slide-up">
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-content">
+                        <h4>Real-Time Sync</h4>
+                        <p>Bi-directional data flow between Salesforce and custom applications with zero latency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Solutions (The 5 Buckets) -->
+    <section class="section" id="industries" style="background: var(--neutral);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">INDUSTRY SOLUTIONS</div>
+                <h2 class="section-title">Solve Your Industry Problem</h2>
+                <p class="section-description">We understand that every industry has unique challenges. Our specialized solutions are tailored to your specific needs.</p>
+            </div>
+            
+            <div class="card-grid stagger-animation">
+                <div class="card industry-card">
+                    <div class="card-icon">🔧</div>
+                    <h3>Field Services</h3>
+                    <p>Empower your field workers with hands-free voice apps that work on the roof, in the cold, or on the road. Capture data offline and sync automatically.</p>
+                    <p class="industry-quote">"I need hands-free apps for the roof, the road, and the cold."</p>
+                    <a href="industries/field-services.html" class="card-link">Learn More →</a>
+                </div>
+                
+                <div class="card industry-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>High-Growth Tech</h3>
+                    <p>Look enterprise-ready for your next funding round. Fractional RevOps that scales with your growth without the overhead of a full team.</p>
+                    <p class="industry-quote">"I need to look enterprise-ready for my next funding round."</p>
+                    <a href="industries/high-growth-tech.html" class="card-link">Learn More →</a>
+                </div>
+                
+                <div class="card industry-card">
+                    <div class="card-icon">💼</div>
+                    <h3>Professional Services</h3>
+                    <p>Manage complex project delivery, resource allocation, and client relationships with precision. From consulting to law to architecture.</p>
+                    <p class="industry-quote">"I need to manage complex project delivery."</p>
+                    <a href="industries/professional-services.html" class="card-link">Learn More →</a>
+                </div>
+                
+                <div class="card industry-card">
+                    <div class="card-icon">🏨</div>
+                    <h3>Hospitality & Wellness</h3>
+                    <p>AI-powered receptionists, intelligent booking engines, and community portals that create exceptional guest experiences.</p>
+                    <p class="industry-quote">"I need AI to handle bookings and guest experience."</p>
+                    <a href="industries/hospitality-wellness.html" class="card-link">Learn More →</a>
+                </div>
+                
+                <div class="card industry-card">
+                    <div class="card-icon">❤️</div>
+                    <h3>Non-Profits</h3>
+                    <p>Modern donor management and impact tracking tools on a non-profit budget. Enterprise features without enterprise costs.</p>
+                    <p class="industry-quote">"I need modern tools on a non-profit budget."</p>
+                    <a href="industries/non-profits.html" class="card-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2 class="mb-2">Trusted by Leading Organizations</h2>
+            <p style="color: #666; margin-bottom: 3rem;">Serving clients across Construction, Technology, Healthcare, and Wellness</p>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="stat">55+</div>
+                    <div class="stat-label">Salesforce Certifications</div>
+                </div>
+                
+                <div class="trust-badge">
+                    <div class="stat">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                
+                <div class="trust-badge">
+                    <div class="stat">10x</div>
+                    <div class="stat-label">Faster Delivery</div>
+                </div>
+                
+                <div class="trust-badge">
+                    <div class="stat">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-md); border-left: 4px solid var(--accent-cyan);">
+                    <p style="font-size: 1.125rem; font-style: italic; color: #333; margin-bottom: 1rem;">
+                        "The CRM Wizards delivered our Salesforce implementation in a fraction of the time we expected. Their AI-augmented approach saved us months and significantly reduced costs."
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-blue); margin: 0;">
+                        — Technology Startup CEO
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--gradient-hero); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1.5rem;">Ready to Transform Your Business?</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">
+                Let's discuss how we can deliver your solution in 1/10th the time.
+            </p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-secondary">Book a Discovery Call</a>
+                <a href="methodology.html" class="btn btn-white">Learn Our Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Widget -->
+    <div class="ai-chat-widget">
+        <button class="chat-toggle" id="chat-toggle" title="Chat with our AI Assistant">
+            🧙‍♂️
+        </button>
+        
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h4 style="margin: 0;">CRM Wizards AI Assistant</h4>
+                <p style="margin: 0; font-size: 0.875rem; opacity: 0.9;">How can we help you today?</p>
+            </div>
+            <div class="chat-body" id="chat-body"></div>
+            <div class="chat-footer">
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="text" id="chat-input" placeholder="Type your message..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    <button id="send-btn" class="btn btn-primary" style="padding: 10px 20px;">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>The CRM Wizards</h3>
+                <p>Enterprise Salesforce and AI solutions delivered in 1/10th the time.</p>
+                <p style="margin-top: 1rem;">Built in Colorado 🏔️</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Industries</h3>
+                <ul class="footer-links">
+                    <li><a href="industries/field-services.html">Field Services</a></li>
+                    <li><a href="industries/high-growth-tech.html">High-Growth Tech</a></li>
+                    <li><a href="industries/professional-services.html">Professional Services</a></li>
+                    <li><a href="industries/hospitality-wellness.html">Hospitality & Wellness</a></li>
+                    <li><a href="industries/non-profits.html">Non-Profits</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="capabilities.html">Capabilities</a></li>
+                    <li><a href="methodology.html">10x Methodology</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/company/the-crm-wizards/" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://appexchange.salesforce.com/" target="_blank">Salesforce AppExchange</a></li>
+                    <li><a href="mailto:info@thecrmwizards.com">info@thecrmwizards.com</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 The CRM Wizards. Salesforce Registered Consulting Partner. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    
+    <!-- Chat Message Styles -->
+    <style>
+        .chat-message {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .bot-message {
+            flex-direction: row;
+        }
+        
+        .user-message {
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .message-content {
+            background: var(--neutral);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            max-width: 70%;
+            font-size: 0.9rem;
+        }
+        
+        .user-message .message-content {
+            background: var(--primary-blue);
+            color: white;
+        }
+    </style>
+</body>
+</html>

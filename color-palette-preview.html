@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Wizards - Color Palette Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        
+        .palette-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .palette-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .palette-subtitle {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .color-card {
+            text-align: center;
+        }
+        
+        .color-swatch {
+            height: 100px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .color-name {
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        
+        .color-hex {
+            font-size: 11px;
+            color: #666;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .preview-section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .preview-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .button-preview {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        /* Palette 1 - Cyber Wizard */
+        .p1-primary { background: #0066CC; }
+        .p1-secondary { background: #004B9B; }
+        .p1-accent { background: #00D4FF; }
+        .p1-neutral { background: #F8FAFC; border: 1px solid #ddd; }
+        .p1-dark { background: #1A1F36; }
+        
+        .p1-btn-primary {
+            background: #0066CC;
+            color: white;
+        }
+        .p1-btn-primary:hover {
+            background: #004B9B;
+        }
+        .p1-btn-secondary {
+            background: #00D4FF;
+            color: #1A1F36;
+        }
+        
+        /* Palette 2 - Trust & Innovation */
+        .p2-primary { background: #2563EB; }
+        .p2-secondary { background: #1E40AF; }
+        .p2-accent { background: #3B82F6; }
+        .p2-neutral { background: #FFFFFF; border: 1px solid #ddd; }
+        .p2-dark { background: #0F172A; }
+        
+        .p2-btn-primary {
+            background: #2563EB;
+            color: white;
+        }
+        .p2-btn-primary:hover {
+            background: #1E40AF;
+        }
+        .p2-btn-secondary {
+            background: #3B82F6;
+            color: white;
+        }
+        
+        /* Palette 3 - AI Gradient */
+        .p3-primary { background: #0F62FE; }
+        .p3-secondary { background: #0043CE; }
+        .p3-accent { background: #4589FF; }
+        .p3-gradient { background: linear-gradient(135deg, #0F62FE, #A56EFF); }
+        .p3-neutral { background: #F4F7FB; border: 1px solid #ddd; }
+        .p3-dark { background: #0D1B2A; }
+        
+        .p3-btn-primary {
+            background: linear-gradient(135deg, #0F62FE, #0043CE);
+            color: white;
+        }
+        .p3-btn-secondary {
+            background: linear-gradient(135deg, #4589FF, #A56EFF);
+            color: white;
+        }
+        
+        .hero-preview {
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .hero-preview h2 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .hero-preview p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 The CRM Wizards - Color Palette Options</h1>
+        
+        <!-- Palette 1 -->
+        <div class="palette-section">
+            <div class="palette-title" style="color: #0066CC;">Palette 1: "Cyber Wizard"</div>
+            <div class="palette-subtitle">Bold & Modern • High Energy • Tech-Forward</div>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch p1-primary"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-hex">#0066CC</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p1-secondary"></div>
+                    <div class="color-name">Secondary Blue</div>
+                    <div class="color-hex">#004B9B</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p1-accent"></div>
+                    <div class="color-name">Accent Cyan</div>
+                    <div class="color-hex">#00D4FF</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p1-neutral"></div>
+                    <div class="color-name">Neutral</div>
+                    <div class="color-hex">#F8FAFC</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p1-dark"></div>
+                    <div class="color-name">Dark</div>
+                    <div class="color-hex">#1A1F36</div>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-title">Button Preview:</div>
+                <div class="button-preview">
+                    <button class="btn p1-btn-primary">Primary CTA</button>
+                    <button class="btn p1-btn-secondary">Secondary CTA</button>
+                </div>
+                
+                <div class="hero-preview" style="background: linear-gradient(135deg, #004B9B, #0066CC); color: white;">
+                    <h2>Enterprise Software at the Speed of AI</h2>
+                    <p>We combine deep Salesforce certification with next-gen AI development</p>
+                    <button class="btn p1-btn-secondary">Get Started</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Palette 2 -->
+        <div class="palette-section">
+            <div class="palette-title" style="color: #2563EB;">Palette 2: "Trust & Innovation"</div>
+            <div class="palette-subtitle">Professional & Balanced • Enterprise-Ready • Classic Confidence</div>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch p2-primary"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-hex">#2563EB</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p2-secondary"></div>
+                    <div class="color-name">Secondary Blue</div>
+                    <div class="color-hex">#1E40AF</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p2-accent"></div>
+                    <div class="color-name">Accent</div>
+                    <div class="color-hex">#3B82F6</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p2-neutral"></div>
+                    <div class="color-name">Neutral</div>
+                    <div class="color-hex">#FFFFFF</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p2-dark"></div>
+                    <div class="color-name">Dark</div>
+                    <div class="color-hex">#0F172A</div>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-title">Button Preview:</div>
+                <div class="button-preview">
+                    <button class="btn p2-btn-primary">Primary CTA</button>
+                    <button class="btn p2-btn-secondary">Secondary CTA</button>
+                </div>
+                
+                <div class="hero-preview" style="background: linear-gradient(135deg, #1E40AF, #2563EB); color: white;">
+                    <h2>It Feels Like Magic. It's Actually Advanced Engineering.</h2>
+                    <p>Small team, deep expertise, massive results</p>
+                    <button class="btn" style="background: white; color: #2563EB;">Find Your Use Case</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Palette 3 -->
+        <div class="palette-section">
+            <div class="palette-title" style="background: linear-gradient(135deg, #0F62FE, #A56EFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Palette 3: "AI Gradient"</div>
+            <div class="palette-subtitle">Premium & Futuristic • AI-Themed • Dynamic Gradients</div>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch p3-primary"></div>
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-hex">#0F62FE</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p3-secondary"></div>
+                    <div class="color-name">Secondary Blue</div>
+                    <div class="color-hex">#0043CE</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p3-accent"></div>
+                    <div class="color-name">Accent</div>
+                    <div class="color-hex">#4589FF</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p3-gradient"></div>
+                    <div class="color-name">AI Gradient</div>
+                    <div class="color-hex">#0F62FE → #A56EFF</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p3-neutral"></div>
+                    <div class="color-name">Neutral</div>
+                    <div class="color-hex">#F4F7FB</div>
+                </div>
+                <div class="color-card">
+                    <div class="color-swatch p3-dark"></div>
+                    <div class="color-name">Dark</div>
+                    <div class="color-hex">#0D1B2A</div>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-title">Button Preview:</div>
+                <div class="button-preview">
+                    <button class="btn p3-btn-primary">Primary CTA</button>
+                    <button class="btn p3-btn-secondary">Secondary CTA</button>
+                </div>
+                
+                <div class="hero-preview" style="background: linear-gradient(135deg, #0D1B2A, #0043CE, #A56EFF); color: white;">
+                    <h2>Salesforce Expertise. Custom AI Power.</h2>
+                    <p>Solve your biggest business problems on and off the platform</p>
+                    <button class="btn p3-btn-primary">View Solutions</button>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: white; border-radius: 12px;">
+            <h3 style="margin-bottom: 10px;">📝 My Recommendation</h3>
+            <p style="color: #666; max-width: 600px; margin: 0 auto;">
+                <strong>Palette 1 "Cyber Wizard"</strong> best matches your logo's cyan accents and creates the strongest AI/tech-forward impression. 
+                The bright cyan (#00D4FF) will work perfectly for highlighting AI features and creating dynamic, modern interactions.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

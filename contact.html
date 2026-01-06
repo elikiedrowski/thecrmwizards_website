@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a discovery call with The CRM Wizards. Let's discuss your Salesforce and AI development needs.">
+    <title>Contact Us - The CRM Wizards</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="The CRM Wizards Logo" class="logo">
+                </a>
+                <span class="company-name">The CRM Wizards</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-dropdown">
+                    <div class="dropdown-toggle nav-link">Industries <span class="dropdown-icon">▼</span></div>
+                    <div class="dropdown-menu">
+                        <a href="industries/field-services.html" class="dropdown-item">
+                            <h4>🔧 Field Services</h4>
+                            <p>Mobile apps, Voice-to-CRM, offline capability</p>
+                        </a>
+                        <a href="industries/high-growth-tech.html" class="dropdown-item">
+                            <h4>🚀 High-Growth Tech</h4>
+                            <p>Fractional RevOps for startups</p>
+                        </a>
+                        <a href="industries/professional-services.html" class="dropdown-item">
+                            <h4>💼 Professional Services</h4>
+                            <p>Project management & delivery</p>
+                        </a>
+                        <a href="industries/hospitality-wellness.html" class="dropdown-item">
+                            <h4>🏨 Hospitality & Wellness</h4>
+                            <p>AI receptionists & booking</p>
+                        </a>
+                        <a href="industries/non-profits.html" class="dropdown-item">
+                            <h4>❤️ Non-Profits</h4>
+                            <p>Donor tools on lean budgets</p>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="capabilities.html" class="nav-link">Capabilities</a></li>
+                <li><a href="methodology.html" class="nav-link">10x Methodology</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 10px 20px;">Book Discovery Call</a></li>
+            </ul>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="min-height: 50vh; padding-top: 120px;">
+        <div class="hero-content">
+            <div class="hero-badge">📞 Let's Talk</div>
+            <h1>Book Your Discovery Call</h1>
+            <p>Ready to deliver your solution in 1/10th the time? Let's discuss your needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section" style="padding-top: 0; margin-top: -100px; position: relative; z-index: 10;">
+        <div class="container">
+            <div class="contact-form">
+                <h2 class="text-center mb-2">Tell Us About Your Project</h2>
+                <p class="text-center mb-3" style="color: #666;">Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <!-- Salesforce Web-to-Lead Form -->
+                <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
+                    <!-- Hidden Salesforce Fields -->
+                    <input type="hidden" name="oid" value="YOUR_SALESFORCE_ORG_ID_HERE">
+                    <input type="hidden" name="retURL" value="https://www.thecrmwizards.com/thank-you.html">
+                    
+                    <!-- Name Fields -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="first_name" class="form-label">First Name *</label>
+                            <input type="text" id="first_name" name="first_name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last_name" class="form-label">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Email and Company -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company" class="form-label">Company *</label>
+                            <input type="text" id="company" name="company" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone and Industry -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="00N" class="form-label">Industry *</label>
+                            <select id="00N" name="00N" class="form-select" required>
+                                <option value="">Select Your Industry</option>
+                                <option value="Field Services">Field Services</option>
+                                <option value="High-Growth Tech">High-Growth Tech / Startups</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Hospitality & Wellness">Hospitality & Wellness</option>
+                                <option value="Non-Profit">Non-Profit</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Type -->
+                    <div class="form-group">
+                        <label for="00N_project" class="form-label">What are you looking for? *</label>
+                        <select id="00N_project" name="00N_project" class="form-select" required>
+                            <option value="">Select Project Type</option>
+                            <option value="Salesforce Implementation">Salesforce Implementation</option>
+                            <option value="Salesforce Optimization">Salesforce Optimization/Cleanup</option>
+                            <option value="Custom App Development">Custom App Development (Web/Mobile)</option>
+                            <option value="AI Integration">AI Integration</option>
+                            <option value="Field Service Solution">Field Service Solution</option>
+                            <option value="RevOps">Revenue Operations (RevOps)</option>
+                            <option value="General Consultation">General Consultation</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="description" class="form-label">Tell us about your project *</label>
+                        <textarea id="description" name="description" class="form-textarea" rows="5" placeholder="What challenges are you facing? What are your goals?" required></textarea>
+                    </div>
+                    
+                    <!-- Timeline -->
+                    <div class="form-group">
+                        <label for="00N_timeline" class="form-label">Desired Timeline</label>
+                        <select id="00N_timeline" name="00N_timeline" class="form-select">
+                            <option value="">Select Timeline</option>
+                            <option value="ASAP">ASAP (Within 1 month)</option>
+                            <option value="1-3 months">1-3 months</option>
+                            <option value="3-6 months">3-6 months</option>
+                            <option value="6+ months">6+ months</option>
+                            <option value="Just exploring">Just exploring options</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        Send My Request
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #666;">
+                        We respect your privacy. Your information will never be shared.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Contact Methods -->
+    <section class="section" style="background: var(--neutral);">
+        <div class="container text-center">
+            <h2 class="mb-3">Other Ways to Reach Us</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>info@thecrmwizards.com</p>
+                    <a href="mailto:info@thecrmwizards.com" class="btn btn-outline">Send Email</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with us professionally</p>
+                    <a href="https://www.linkedin.com/company/the-crm-wizards/" target="_blank" class="btn btn-outline">View Profile</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Quick Questions?</h3>
+                    <p>Use our AI chat assistant</p>
+                    <button onclick="document.getElementById('chat-toggle').click()" class="btn btn-outline">Start Chat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--accent-cyan);">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">How quickly can you start?</h4>
+                    <p style="margin: 0; color: #666;">Most projects can begin within 1-2 weeks of our discovery call. For urgent needs, we can often accommodate faster timelines.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--accent-cyan);">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">What's included in the discovery call?</h4>
+                    <p style="margin: 0; color: #666;">We'll discuss your business challenges, current systems, goals, and timeline. We'll provide initial recommendations and a rough estimate of scope and cost.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--accent-cyan);">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Do you work with clients remotely?</h4>
+                    <p style="margin: 0; color: #666;">Yes! While we're based in Colorado, we serve clients nationwide and internationally. All our services are available remotely.</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem; padding: 1.5rem; background: white; border-radius: 12px; border-left: 4px solid var(--accent-cyan);">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">What makes your approach different?</h4>
+                    <p style="margin: 0; color: #666;">Our 10x Methodology leverages AI-augmented development to deliver in 1/10th the time of traditional consultancies, without sacrificing quality or customization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>The CRM Wizards</h3>
+                <p>Enterprise Salesforce and AI solutions delivered in 1/10th the time.</p>
+                <p style="margin-top: 1rem;">Built in Colorado 🏔️</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Industries</h3>
+                <ul class="footer-links">
+                    <li><a href="industries/field-services.html">Field Services</a></li>
+                    <li><a href="industries/high-growth-tech.html">High-Growth Tech</a></li>
+                    <li><a href="industries/professional-services.html">Professional Services</a></li>
+                    <li><a href="industries/hospitality-wellness.html">Hospitality & Wellness</a></li>
+                    <li><a href="industries/non-profits.html">Non-Profits</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="capabilities.html">Capabilities</a></li>
+                    <li><a href="methodology.html">10x Methodology</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/company/the-crm-wizards/" target="_blank">LinkedIn</a></li>
+                    <li><a href="mailto:info@thecrmwizards.com">info@thecrmwizards.com</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 The CRM Wizards. Salesforce Registered Consulting Partner. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

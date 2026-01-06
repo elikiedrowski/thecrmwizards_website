@@ -1,0 +1,71 @@
+INSTRUCTIONS: Creating Additional Industry Pages
+================================================
+
+You have 4 more industry pages to create:
+1. high-growth-tech.html
+2. professional-services.html
+3. hospitality-wellness.html
+4. non-profits.html
+
+EASY METHOD:
+1. Copy field-services.html
+2. Find and replace the following for each industry:
+
+FOR HIGH-GROWTH TECH:
+---------------------
+Replace "🔧" with "🚀"
+Replace "FIELD SERVICES" with "HIGH-GROWTH TECH"
+Replace "I need hands-free apps..." with "I need to look enterprise-ready for my next funding round."
+Replace "Voice-enabled mobile solutions..." with "Fractional RevOps that scales without enterprise overhead"
+
+Key selling points:
+- Investor-ready dashboards
+- Revenue forecasting
+- Sales automation
+- Board-ready metrics
+- Fractional RevOps expertise
+
+FOR PROFESSIONAL SERVICES:
+--------------------------
+Replace "🔧" with "💼"
+Replace "FIELD SERVICES" with "PROFESSIONAL SERVICES"
+Replace "I need hands-free apps..." with "I need to manage complex project delivery."
+Replace "Voice-enabled mobile solutions..." with "Project management and resource allocation at enterprise scale"
+
+Key selling points:
+- Time tracking & billing
+- Resource management
+- Client portals
+- Project profitability
+- Capacity planning
+
+FOR HOSPITALITY & WELLNESS:
+---------------------------
+Replace "��" with "🏨"
+Replace "FIELD SERVICES" with "HOSPITALITY & WELLNESS"
+Replace "I need hands-free apps..." with "I need AI to handle bookings and guest experience."
+Replace "Voice-enabled mobile solutions..." with "AI receptionists and intelligent booking engines"
+
+Key selling points:
+- AI-powered booking
+- Guest experience automation
+- Member portals
+- Class/appointment scheduling
+- Review & feedback management
+
+FOR NON-PROFITS:
+---------------
+Replace "🔧" with "❤️"
+Replace "FIELD SERVICES" with "NON-PROFITS"
+Replace "I need hands-free apps..." with "I need modern tools on a non-profit budget."
+Replace "Voice-enabled mobile solutions..." with "Enterprise donor management without enterprise costs"
+
+Key selling points:
+- Donor management
+- Impact tracking
+- Volunteer coordination
+- Grant management
+- Fundraising automation
+
+QUICK TIP:
+Use your code editor's "Find and Replace" feature to make these changes quickly!
