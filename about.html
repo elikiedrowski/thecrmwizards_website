@@ -9,41 +9,59 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="The CRM Wizards" style="height: 50px;">
-            </a>
-            
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="The CRM Wizards Logo" class="logo">
+                </a>
+                <span class="company-name">The CRM Wizards</span>
+            </div>
             
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Solutions</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="capabilities.html">Capabilities</a></li>
-                        <li><a href="methodology.html">Methodology</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                    </ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                
+                <li class="nav-dropdown">
+                    <div class="dropdown-toggle nav-link">
+                        Industries
+                        <span class="dropdown-icon">▼</span>
+                    </div>
+                    <div class="dropdown-menu">
+                        <a href="industries/field-services.html" class="dropdown-item">
+                            <h4>🔧 Field Services</h4>
+                            <p>Gloves-on mobile apps, Voice-to-CRM, offline capability</p>
+                        </a>
+                        <a href="industries/high-growth-tech.html" class="dropdown-item">
+                            <h4>🚀 High-Growth Tech</h4>
+                            <p>Fractional RevOps for VC-backed startups</p>
+                        </a>
+                        <a href="industries/professional-services.html" class="dropdown-item">
+                            <h4>💼 Professional Services</h4>
+                            <p>Project management & resource delivery</p>
+                        </a>
+                        <a href="industries/hospitality-wellness.html" class="dropdown-item">
+                            <h4>🏨 Hospitality & Wellness</h4>
+                            <p>AI receptionists, booking engines, community portals</p>
+                        </a>
+                        <a href="industries/non-profits.html" class="dropdown-item">
+                            <h4>❤️ Non-Profits</h4>
+                            <p>High-impact donor tools on lean budgets</p>
+                        </a>
+                    </div>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Industries</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="industries/field-services.html">Field Services</a></li>
-                        <li><a href="industries/high-growth-tech.html">High-Growth Tech</a></li>
-                        <li><a href="industries/professional-services.html">Professional Services</a></li>
-                        <li><a href="industries/hospitality-wellness.html">Hospitality & Wellness</a></li>
-                        <li><a href="industries/non-profits.html">Non-Profits</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
+                
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="capabilities.html" class="nav-link">Capabilities</a></li>
+                <li><a href="methodology.html" class="nav-link">10x Methodology</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 10px 20px;">Book Discovery Call</a></li>
             </ul>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
