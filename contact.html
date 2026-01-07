@@ -63,8 +63,8 @@
     <section class="section" style="padding-top: 0; margin-top: -100px; position: relative; z-index: 10;">
         <div class="container">
             <div class="contact-form">
-                <h2 class="text-center mb-2">Tell Us About Your Project</h2>
-                <p class="text-center mb-3" style="color: #666;">Fill out the form below and we'll get back to you within 24 hours.</p>
+                <h2 id="form-heading" class="text-center mb-2">Tell Us About Your Project</h2>
+                <p id="form-description" class="text-center mb-3" style="color: #666;">Fill out the form below and we'll get back to you within 24 hours.</p>
                 
                 <!-- Salesforce Web-to-Lead Form -->
                 <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dal00000gthwU">
@@ -278,9 +278,14 @@
                 // Show success message
                 const successMessage = document.getElementById('success-message');
                 const form = document.getElementById('contact-form');
+                const formHeading = document.getElementById('form-heading');
+                const formDescription = document.getElementById('form-description');
+                
                 if (successMessage && form) {
                     successMessage.style.display = 'block';
                     form.style.display = 'none';
+                    if (formHeading) formHeading.style.display = 'none';
+                    if (formDescription) formDescription.style.display = 'none';
                     
                     // Scroll to success message
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
