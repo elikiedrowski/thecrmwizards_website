@@ -332,72 +332,11 @@ class SalesforceLeadForm {
         this.form = document.getElementById(formId);
         if (!this.form) return;
         
-        this.init();
+        // Don't initialize - let the form submit naturally to Salesforce
+        // The form action is already configured in the HTML
+        console.log('Salesforce Web-to-Lead form ready');
     }
-    
-    init() {
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    }
-    
-    async handleSubmit(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this.form);
-        const data = Object.fromEntries(formData);
-        
-        // Show loading state
-        const submitBtn = this.form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        try {
-            // Salesforce Web-to-Lead endpoint
-            // NOTE: Replace with your actual Salesforce org ID and endpoint
-            const sfEndpoint = 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8';
-            
-            // Create form data for Salesforce
-            const sfFormData = new FormData();
-            sfFormData.append('oid', 'YOUR_ORG_ID_HERE'); // Replace with your Salesforce Org ID
-            sfFormData.append('retURL', window.location.origin + '/thank-you.html');
-            
-            // Map form fields to Salesforce fields
-            sfFormData.append('first_name', data.firstName || '');
-            sfFormData.append('last_name', data.lastName || '');
-            sfFormData.append('email', data.email || '');
-            sfFormData.append('company', data.company || '');
-            sfFormData.append('phone', data.phone || '');
-            sfFormData.append('00N...', data.industry || ''); // Replace with your custom field ID
-            sfFormData.append('description', data.message || '');
-            
-            // Submit to Salesforce
-            await fetch(sfEndpoint, {
-                method: 'POST',
-                body: sfFormData,
-                mode: 'no-cors' // Required for Salesforce Web-to-Lead
-            });
-            
-            // Show success message
-            this.showMessage('success', 'Thank you! We\'ll be in touch soon.');
-            this.form.reset();
-            
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            this.showMessage('error', 'Something went wrong. Please try again or email us directly.');
-        } finally {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    }
-    
-    showMessage(type, message) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `form-message ${type}`;
-        messageDiv.textContent = message;
-        messageDiv.style.cssText = `
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 8px;
+}
             text-align: center;
             background: ${type === 'success' ? '#d4edda' : '#f8d7da'};
             color: ${type === 'success' ? '#155724' : '#721c24'};
