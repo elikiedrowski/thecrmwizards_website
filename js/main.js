@@ -2,9 +2,8 @@
 // AI-Powered Interactive Features
 
 // ============================================
-// Dark Mode Toggle - Initialize immediately
+// Dark Mode Toggle
 // ============================================
-
 // Apply saved theme immediately (before DOM loads to prevent flash)
 (function() {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -37,7 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});\n\n// ============================================
+});
+
+// ============================================
 // Navigation & Menu
 // ============================================
 

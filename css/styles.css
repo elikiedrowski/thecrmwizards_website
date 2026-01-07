@@ -323,12 +323,12 @@ p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     border-radius: 50px;
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 1rem;
     transition: var(--transition-normal);
     margin-left: 1rem;
     white-space: nowrap;
