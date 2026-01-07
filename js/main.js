@@ -2,27 +2,31 @@
 // AI-Powered Interactive Features
 
 // ============================================
-// Dark Mode Toggle
+// Dark Mode Toggle - Initialize immediately
 // ============================================
 
-// Initialize dark mode from localStorage
+// Apply saved theme immediately (before DOM loads to prevent flash)
+(function() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+// Setup dark mode toggle after DOM loads
 document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const html = document.documentElement;
     const themeIcon = darkModeToggle?.querySelector('.theme-icon');
     
-    // Check for saved user preference, default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    
     // Update icon based on current theme
+    const currentTheme = html.getAttribute('data-theme') || 'light';
     if (themeIcon) {
         themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
     }
     
     // Toggle dark mode
     if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', function() {
+        darkModeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);

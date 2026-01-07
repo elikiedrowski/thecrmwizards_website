@@ -185,6 +185,8 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    min-height: 70px;
 }
 
 .logo-container {
@@ -214,6 +216,7 @@ p {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -221,6 +224,7 @@ p {
     color: var(--text-primary);
     padding: 0.5rem 0;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -327,6 +331,8 @@ p {
     font-size: 1.25rem;
     transition: var(--transition-normal);
     margin-left: 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .dark-mode-toggle:hover {
@@ -344,6 +350,16 @@ p {
     transform: rotate(180deg);
 }
 
+/* Prevent navigation items from wrapping */
+.nav-menu > li {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.dropdown-toggle {
+    white-space: nowrap;
+}
+
 /* ============================================
    Buttons
    ============================================ */
@@ -359,6 +375,8 @@ p {
     border: none;
     transition: var(--transition-normal);
     text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .btn-primary {
