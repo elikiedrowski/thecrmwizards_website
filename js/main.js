@@ -2,6 +2,38 @@
 // AI-Powered Interactive Features
 
 // ============================================
+// Dark Mode Toggle
+// ============================================
+
+// Initialize dark mode from localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    const themeIcon = darkModeToggle?.querySelector('.theme-icon');
+    
+    // Check for saved user preference, default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on current theme
+    if (themeIcon) {
+        themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    // Toggle dark mode
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', function() {
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            if (themeIcon) {
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            }
+        });
+    }
+});\n\n// ============================================
 // Navigation & Menu
 // ============================================
 
@@ -514,6 +546,104 @@ class VoiceAssistant {
 
 // Expose voice assistant globally for optional use
 window.voiceAssistant = new VoiceAssistant();
+
+// ============================================
+// Exit Intent Popup
+// ============================================
+
+class ExitIntentPopup {
+    constructor() {
+        this.popup = document.getElementById('exitPopup');
+        this.closeBtn = document.getElementById('closeExitPopup');
+        this.form = document.getElementById('exitPopupForm');
+        this.hasShown = localStorage.getItem('exitPopupShown') === 'true';
+        this.mouseY = 0;
+        
+        if (!this.hasShown && this.popup) {
+            this.init();
+        }
+    }
+    
+    init() {
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            this.mouseY = e.clientY;
+        });
+        
+        // Detect exit intent (mouse leaving viewport at top)
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY < 10 && this.mouseY < 10 && !this.hasShown) {
+                this.show();
+            }
+        });
+        
+        // Close popup
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.close());
+        }
+        
+        // Close on overlay click
+        this.popup.addEventListener('click', (e) => {
+            if (e.target === this.popup) {
+                this.close();
+            }
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.popup.classList.contains('active')) {
+                this.close();
+            }
+        });
+        
+        // Handle form submission
+        if (this.form) {
+            this.form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.handleSubmit();
+            });
+        }
+    }
+    
+    show() {
+        if (!this.hasShown && this.popup) {
+            this.popup.classList.add('active');
+            this.hasShown = true;
+            localStorage.setItem('exitPopupShown', 'true');
+        }
+    }
+    
+    close() {
+        if (this.popup) {
+            this.popup.classList.remove('active');
+        }
+    }
+    
+    handleSubmit() {
+        const email = this.form.querySelector('input[name="email"]').value;
+        
+        // Here you would typically send to your email service
+        console.log('Exit popup email captured:', email);
+        
+        // Show success message
+        const popup = this.popup.querySelector('.exit-popup');
+        popup.innerHTML = `
+            <button class="exit-popup-close" onclick="document.getElementById('exitPopup').classList.remove('active')">×</button>
+            <div class="exit-popup-icon">✅</div>
+            <h2>Thank You!</h2>
+            <p>Check your email for your free Salesforce Readiness Assessment and 10x Methodology guide.</p>
+            <p style="margin-top: 2rem;"><a href="contact.html" class="btn btn-primary">Schedule Your Discovery Call</a></p>
+        `;
+        
+        // Auto-close after 5 seconds
+        setTimeout(() => this.close(), 5000);
+    }
+}
+
+// Initialize exit intent popup
+if (document.getElementById('exitPopup')) {
+    new ExitIntentPopup();
+}
 
 // ============================================
 // Utility Functions
