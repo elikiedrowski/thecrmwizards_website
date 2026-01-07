@@ -283,6 +283,9 @@ p {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border-color);
     transition: var(--transition-fast);
+    display: block;
+    color: var(--text-primary);
+    white-space: nowrap;
 }
 
 .dropdown-item:last-child {
@@ -292,18 +295,7 @@ p {
 .dropdown-item:hover {
     background: var(--bg-secondary);
     padding-left: 2rem;
-}
-
-.dropdown-item h4 {
     color: var(--primary-blue);
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
-}
-
-.dropdown-item p {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin: 0;
 }
 
 .mobile-menu-toggle {
