@@ -70,7 +70,7 @@
                 <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dal00000gthwU">
                     <!-- Hidden Salesforce Fields -->
                     <input type="hidden" name="oid" value="00Dal00000gthwU">
-                    <input type="hidden" name="retURL" value="https://elikiedrowski.github.io/thecrmwizards_website/thank-you.html">
+                    <input type="hidden" name="retURL" value="https://elikiedrowski.github.io/thecrmwizards_website/contact.html?success=true">
                     <!-- Debug mode -->
                     <input type="hidden" name="debug" value="1">
                     <input type="hidden" name="debugEmail" value="eli@thecrmwizards.com">
@@ -152,6 +152,13 @@
                         We respect your privacy. Your information will never be shared.
                     </p>
                 </form>
+                
+                <!-- Success Message -->
+                <div id="success-message" style="display: none; padding: 1.5rem; margin-top: 2rem; border-radius: 12px; background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); border: 2px solid #28a745; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+                    <h3 style="color: #155724; margin-bottom: 0.5rem;">Thank You!</h3>
+                    <p style="color: #155724; margin: 0;">Your request has been received. We'll get back to you within 24 hours.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -263,5 +270,26 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script>
+        // Check if form was successfully submitted
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                // Show success message
+                const successMessage = document.getElementById('success-message');
+                const form = document.getElementById('contact-form');
+                if (successMessage && form) {
+                    successMessage.style.display = 'block';
+                    form.style.display = 'none';
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Clean URL after showing message
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
