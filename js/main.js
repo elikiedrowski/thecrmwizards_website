@@ -2,6 +2,58 @@
 // AI-Powered Interactive Features
 
 // ============================================
+// Testimonial Carousel
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.testimonial-carousel');
+    if (carousel) {
+        const slides = carousel.querySelectorAll('.testimonial-slide');
+        const dots = carousel.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let autoRotateInterval;
+        
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.style.display = 'none');
+            
+            // Remove active class from all dots
+            dots.forEach(dot => dot.style.opacity = '0.3');
+            
+            // Show current slide
+            if (slides[index]) {
+                slides[index].style.display = 'block';
+                dots[index].style.opacity = '1';
+            }
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+            
+            // Reset auto-rotation
+            clearInterval(autoRotateInterval);
+            autoRotateInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Add click handlers to dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Show first slide
+        showSlide(0);
+        
+        // Auto-rotate every 5 seconds
+        autoRotateInterval = setInterval(nextSlide, 5000);
+    }
+});
+
+// ============================================
 // Dark Mode Toggle
 // ============================================
 // Apply saved theme immediately (before DOM loads to prevent flash)
