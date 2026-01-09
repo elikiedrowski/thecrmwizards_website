@@ -1053,6 +1053,19 @@ p {
     }
 }
 
+@media (max-width: 768px) {
+    /* Industry cards: 2 per row on mobile */
+    #industries .card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem;
+    }
+    
+    #industries .industry-card {
+        grid-column: span 1 !important;
+        min-height: auto !important;
+    }
+}
+
 @media (max-width: 480px) {
     :root {
         --section-padding: 40px 20px;
@@ -1060,6 +1073,12 @@ p {
     
     .card-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Keep industry cards at 2 per row even on small screens */
+    #industries .card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
     }
 }
 
