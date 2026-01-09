@@ -1054,9 +1054,9 @@ p {
 }
 
 @media (max-width: 768px) {
-    /* Industry cards: 2 per row on mobile */
+    /* Industry cards: 1 per row on mobile */
     #industries .card-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: 1fr !important;
         gap: 1.5rem;
     }
     
@@ -1075,9 +1075,9 @@ p {
         grid-template-columns: 1fr;
     }
     
-    /* Keep industry cards at 2 per row even on small screens */
+    /* Industry cards stack vertically on small screens */
     #industries .card-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: 1fr !important;
         gap: 1rem;
     }
 }
