@@ -453,6 +453,28 @@ class AIChatbot {
 let chatbot;
 document.addEventListener('DOMContentLoaded', function() {
     chatbot = new AIChatbot();
+    // Robustly add reset button after chat window/footer are present
+    function ensureResetButton() {
+        const chatWindow = document.getElementById('chat-window');
+        if (!chatWindow) return setTimeout(ensureResetButton, 200);
+        const footer = chatWindow.querySelector('.chat-footer');
+        if (!footer) return setTimeout(ensureResetButton, 200);
+        if (!footer.querySelector('.reset-chat-btn')) {
+            const resetBtn = document.createElement('button');
+            resetBtn.textContent = 'Reset Chat';
+            resetBtn.className = 'btn btn-secondary reset-chat-btn';
+            resetBtn.style.marginTop = '1rem';
+            resetBtn.style.width = '100%';
+            resetBtn.style.padding = '10px 0';
+            resetBtn.onclick = () => {
+                if (window.confirm('Delete history?')) {
+                    chatbot.performHardReset();
+                }
+            };
+            footer.appendChild(resetBtn);
+        }
+    }
+    ensureResetButton();
 });
 
 // ============================================
