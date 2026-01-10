@@ -286,12 +286,26 @@ class AIChatbot {
             });
         }
         
-        // Initial greeting
-        setTimeout(() => this.addMessage('bot', this.getRandomResponse('greeting')), 500);
+        // Load chat history from localStorage
+        this.loadChatHistory();
+        
+        // Restore chat window state
+        const wasOpen = localStorage.getItem('chatWindowOpen') === 'true';
+        if (wasOpen) {
+            this.chatWindow.classList.add('active');
+        }
+        
+        // If no messages in history, show initial greeting
+        const chatHistory = this.getChatHistory();
+        if (chatHistory.length === 0) {
+            setTimeout(() => this.addMessage('bot', this.getRandomResponse('greeting')), 500);
+        }
     }
     
     toggleChat() {
         this.chatWindow.classList.toggle('active');
+        const isOpen = this.chatWindow.classList.contains('active');
+        localStorage.setItem('chatWindowOpen', isOpen);
     }
     
     sendMessage() {
@@ -317,6 +331,51 @@ class AIChatbot {
         `;
         this.chatBody.appendChild(messageDiv);
         this.chatBody.scrollTop = this.chatBody.scrollHeight;
+        
+        // Save to localStorage
+        this.saveChatMessage(sender, text);
+    }
+    
+    saveChatMessage(sender, text) {
+        const history = this.getChatHistory();
+        history.push({ sender, text, timestamp: Date.now() });
+        
+        // Keep only last 50 messages
+        if (history.length > 50) {
+            history.shift();
+        }
+        
+        localStorage.setItem('chatHistory', JSON.stringify(history));
+    }
+    
+    getChatHistory() {
+        const stored = localStorage.getItem('chatHistory');
+        return stored ? JSON.parse(stored) : [];
+    }
+    
+    loadChatHistory() {
+        const history = this.getChatHistory();
+        
+        // Clear any existing messages
+        this.chatBody.innerHTML = '';
+        
+        // Restore messages
+        history.forEach(msg => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${msg.sender}-message`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${msg.sender === 'bot' ? '🧙‍♂️' : '👤'}</div>
+                <div class="message-content">${msg.text}</div>
+            `;
+            this.chatBody.appendChild(messageDiv);
+        });
+        
+        this.chatBody.scrollTop = this.chatBody.scrollHeight;
+    }
+    
+    clearHistory() {
+        localStorage.removeItem('chatHistory');
+        this.chatBody.innerHTML = '';
     }
     
     generateResponse(message) {
