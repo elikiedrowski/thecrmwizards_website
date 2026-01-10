@@ -202,8 +202,8 @@ class AIChatbot {
         // Website content knowledge base
         this.knowledgeBase = {
             methodology: {
-                keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework', 'secret weapon'],
-                response: "Our 10x Methodology combines AI-augmented development, deep Salesforce expertise, and battle-tested frameworks. It's not magic—it's methodology. We deliver enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months."
+                keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework', 'secret weapon', 'pillars', '5 pillars', 'five pillars'],
+                response: "Our 10x Methodology combines AI-augmented development, deep Salesforce expertise, and battle-tested frameworks. It's not magic—it's methodology. We deliver enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months. The 5 Pillars of 10x Development are: (1) AI-Augmented Coding, (2) Modular Components, (3) Rapid Prototyping, (4) Focus on Outcomes, and (5) Continuous Deployment."
             },
             pillars: {
                 keywords: ['pillar', 'five pillars', '5 pillars'],
@@ -354,23 +354,9 @@ class AIChatbot {
     }
     
     loadChatHistory() {
-        const history = this.getChatHistory();
-        
-        // Clear any existing messages
+        // Always reset chat history on page load
+        this.clearHistory();
         this.chatBody.innerHTML = '';
-        
-        // Restore messages
-        history.forEach(msg => {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${msg.sender}-message`;
-            messageDiv.innerHTML = `
-                <div class="message-avatar">${msg.sender === 'bot' ? '🧙‍♂️' : '👤'}</div>
-                <div class="message-content">${msg.text}</div>
-            `;
-            this.chatBody.appendChild(messageDiv);
-        });
-        
-        this.chatBody.scrollTop = this.chatBody.scrollHeight;
     }
     
     clearHistory() {
