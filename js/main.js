@@ -544,35 +544,8 @@ class SalesforceLeadForm {
 // ============================================
 
 class InteractiveDemo {
-    initChat() {
-        if (!this.chatToggle) return;
-        this.chatToggle.addEventListener('click', () => this.toggleChat());
-        if (this.sendBtn) {
-            this.sendBtn.addEventListener('click', () => this.sendMessage());
-        }
-        if (this.chatInput) {
-            this.chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') this.sendMessage();
-            });
-        }
-        // Session ID Management
-        this.sessionId = sessionStorage.getItem('chatSessionId') || this.generateUUID();
-        sessionStorage.setItem('chatSessionId', this.sessionId);
-        // Load chat history from localStorage
-        this.loadChatHistory();
-        // Restore chat window state
-        const wasOpen = localStorage.getItem('chatWindowOpen') === 'true';
-        if (wasOpen) {
-            this.chatWindow.classList.add('active');
-        }
-        // If no messages in history, show initial greeting
-        const chatHistory = this.getChatHistory();
-        if (chatHistory.length === 0) {
-            setTimeout(() => this.addMessage('bot', this.getRandomResponse('greeting')), 500);
-        }
-    }
-        // Counter animation code removed for valid JS structure
-    }
+    // Placeholder for future interactive demo features
+    // Counter animation code removed for valid JS structure
 }
 
 // Initialize interactive features
