@@ -269,6 +269,7 @@ class AIChatbot {
         };
         
         this.initChat();
+        this.addResetButton();
     }
     
     initChat() {
@@ -354,9 +355,38 @@ class AIChatbot {
     }
     
     loadChatHistory() {
-        // Always reset chat history on page load
-        this.clearHistory();
+        // Restore chat history from localStorage
         this.chatBody.innerHTML = '';
+        const history = this.getChatHistory();
+        history.forEach(msg => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${msg.sender}-message`;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${msg.sender === 'bot' ? '🧙‍♂️' : '👤'}</div>
+                <div class="message-content">${msg.text}</div>
+            `;
+            this.chatBody.appendChild(messageDiv);
+        });
+        this.chatBody.scrollTop = this.chatBody.scrollHeight;
+    }
+
+    addResetButton() {
+        if (!this.chatWindow) return;
+        let footer = this.chatWindow.querySelector('.chat-footer');
+        if (!footer) return;
+        // Only add once
+        if (footer.querySelector('.reset-chat-btn')) return;
+        const resetBtn = document.createElement('button');
+        resetBtn.textContent = 'Reset Chat';
+        resetBtn.className = 'btn btn-secondary reset-chat-btn';
+        resetBtn.style.marginLeft = '0.5rem';
+        resetBtn.style.padding = '10px 20px';
+        resetBtn.onclick = () => {
+            this.clearHistory();
+            this.chatBody.innerHTML = '';
+            this.addMessage('bot', this.getRandomResponse('greeting'));
+        };
+        footer.appendChild(resetBtn);
     }
     
     clearHistory() {
