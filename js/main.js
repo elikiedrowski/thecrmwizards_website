@@ -327,7 +327,7 @@ class AIChatbot {
         const messageDiv = document.createElement('div');
         messageDiv.className = `chat-message ${sender}-message`;
         messageDiv.innerHTML = `
-            <div class="message-avatar">${sender === 'bot' ? '🧙‍♂️' : '👤'}</div>
+            <div class="message-avatar">${sender === 'bot' ? '<img src="assets/images/logo.png" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />' : '👤'}</div>
             <div class="message-content">${text}</div>
         `;
         this.chatBody.appendChild(messageDiv);
@@ -362,7 +362,7 @@ class AIChatbot {
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${msg.sender}-message`;
             messageDiv.innerHTML = `
-                <div class="message-avatar">${msg.sender === 'bot' ? '🧙‍♂️' : '👤'}</div>
+                <div class="message-avatar">${msg.sender === 'bot' ? '<img src="assets/images/logo.png" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />' : '👤'}</div>
                 <div class="message-content">${msg.text}</div>
             `;
             this.chatBody.appendChild(messageDiv);
