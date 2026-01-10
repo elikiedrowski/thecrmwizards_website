@@ -379,14 +379,40 @@ class AIChatbot {
         const resetBtn = document.createElement('button');
         resetBtn.textContent = 'Reset Chat';
         resetBtn.className = 'btn btn-secondary reset-chat-btn';
-        resetBtn.style.marginLeft = '0.5rem';
-        resetBtn.style.padding = '10px 20px';
+        resetBtn.style.marginTop = '1rem';
+        resetBtn.style.width = '100%';
+        resetBtn.style.padding = '10px 0';
         resetBtn.onclick = () => {
-            this.clearHistory();
-            this.chatBody.innerHTML = '';
-            this.addMessage('bot', this.getRandomResponse('greeting'));
+            if (window.confirm('Delete history?')) {
+                this.performHardReset();
+            }
         };
         footer.appendChild(resetBtn);
+    }
+
+    performHardReset() {
+        // UI State: Clear chat bubbles
+        this.chatBody.innerHTML = '';
+        // Session Memory: Generate new session UUID
+        this.sessionId = this.generateUUID();
+        sessionStorage.setItem('chatSessionId', this.sessionId);
+        // LocalStorage: Purge chat history
+        localStorage.removeItem('chatHistory');
+        localStorage.setItem('chatWindowOpen', 'true');
+        // Token Counter: Reset (if tracked)
+        localStorage.removeItem('chatTokenCount');
+        // Server-Side: (Placeholder for API call to clear thread/context)
+        // Example: fetch('/api/chat/reset', { method: 'POST', body: JSON.stringify({ sessionId: this.sessionId }) })
+        // Welcome Re-trigger: Show greeting
+        this.addMessage('bot', this.getRandomResponse('greeting'));
+    }
+
+    generateUUID() {
+        // RFC4122 version 4 compliant UUID
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
     }
     
     clearHistory() {
@@ -518,30 +544,33 @@ class SalesforceLeadForm {
 // ============================================
 
 class InteractiveDemo {
-    constructor() {
-        this.initTimelineComparison();
-        this.initCounterAnimation();
-    }
-    
-    initTimelineComparison() {
-        const comparisonSection = document.querySelector('.comparison');
-        if (!comparisonSection) return;
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateTimeline();
-                    observer.unobserve(entry.target);
-                }
+    initChat() {
+        if (!this.chatToggle) return;
+        this.chatToggle.addEventListener('click', () => this.toggleChat());
+        if (this.sendBtn) {
+            this.sendBtn.addEventListener('click', () => this.sendMessage());
+        }
+        if (this.chatInput) {
+            this.chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') this.sendMessage();
             });
-        });
-        
-        observer.observe(comparisonSection);
+        }
+        // Session ID Management
+        this.sessionId = sessionStorage.getItem('chatSessionId') || this.generateUUID();
+        sessionStorage.setItem('chatSessionId', this.sessionId);
+        // Load chat history from localStorage
+        this.loadChatHistory();
+        // Restore chat window state
+        const wasOpen = localStorage.getItem('chatWindowOpen') === 'true';
+        if (wasOpen) {
+            this.chatWindow.classList.add('active');
+        }
+        // If no messages in history, show initial greeting
+        const chatHistory = this.getChatHistory();
+        if (chatHistory.length === 0) {
+            setTimeout(() => this.addMessage('bot', this.getRandomResponse('greeting')), 500);
+        }
     }
-    
-    animateTimeline() {
-        const values = document.querySelectorAll('.comparison-value');
-        values.forEach((value, index) => {
             const target = parseInt(value.textContent);
             const duration = 2000;
             const increment = target / (duration / 16);
