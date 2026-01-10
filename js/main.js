@@ -255,16 +255,16 @@ class AIChatbot {
             greeting: [
                 "Hello! I'm the CRM Wizards AI assistant. I can answer questions about our services, methodology, industries we serve, and more. What would you like to know?",
                 "Hi there! I'm here to help you learn about our AI-powered Salesforce solutions and 10x development methodology. What are you interested in?",
-                "Welcome! Ask me anything about The CRM Wizards - our capabilities, process, pricing, or how we can help your business."
+                "Welcome! Ask me anything about The CRM Wizards - our capabilities, process, or how we can help your business."
             ],
             unknown: [
-                "That's a great question! I'd love to connect you with our team to discuss this in detail. Would you like to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>book a discovery call</a>?",
-                "I want to make sure you get the most accurate answer. Our team can provide detailed insights on this - shall I direct you to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>schedule a call</a>?",
-                "Great question! For specific details like this, I recommend <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>booking a discovery call</a> with our team. They'll give you a comprehensive answer tailored to your needs."
+                "That's a great question! I'd love to connect you with our team to discuss this in detail. Would you like to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>Book A Call</a>?",
+                "I want to make sure you get the most accurate answer. Our team can provide detailed insights on this - shall I direct you to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>Book A Call</a>?",
+                "Great question! For specific details like this, I recommend <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>Book A Call</a> with our team. They'll give you a comprehensive answer tailored to your needs."
             ],
             contact: [
-                "Perfect! You can <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>book a discovery call here</a>. Our team will discuss your specific needs and show you exactly how we can help.",
-                "Great! Head over to our <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>contact page</a> to schedule a discovery call. We'd love to discuss how we can deliver your project faster."
+                "Perfect! You can <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>Book A Call here</a>. Our team will discuss your specific needs and show you exactly how we can help.",
+                "Great! Head over to our <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>contact page</a> to Book A Call. We'd love to discuss how we can deliver your project faster."
             ]
         };
         
