@@ -199,32 +199,72 @@ class AIChatbot {
         this.chatInput = document.getElementById('chat-input');
         this.sendBtn = document.getElementById('send-btn');
         
+        // Website content knowledge base
+        this.knowledgeBase = {
+            methodology: {
+                keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework'],
+                response: "Our 10x Methodology delivers enterprise software 10 times faster through: (1) AI-Augmented Coding for faster development, (2) Hundreds of modular components, (3) Rapid prototyping - working prototypes in days, (4) Focus on outcomes, not story points, and (5) Continuous deployment. We complete projects in weeks, not months!"
+            },
+            pillars: {
+                keywords: ['pillar', 'ai augmented', 'modular', 'rapid prototype', 'continuous', 'deployment'],
+                response: "The 5 Pillars of our methodology are grounded in Technical Integrity and Robust Performance: AI-Augmented Coding, Modular Components, Rapid Prototyping, Focus on Outcomes, and Continuous Deployment. Together they enable radical innovation & speed to delivery."
+            },
+            salesforce: {
+                keywords: ['salesforce', 'crm', 'certified', 'platform', 'implementation'],
+                response: "We're Salesforce Registered Partners with deep platform expertise. We handle everything from core Salesforce implementations to custom integrations, flows, and advanced customizations. We can work on-platform for your power users or build custom off-platform apps that integrate seamlessly."
+            },
+            ai: {
+                keywords: ['artificial intelligence', 'machine learning', 'ai development', 'voice', 'automation'],
+                response: "We build practical AI solutions including voice assistants for hands-free field work, intelligent automation, predictive analytics, and AI-powered customer experiences. Our AI integrates directly into your workflows - making it practical, not just buzzworthy."
+            },
+            industries: {
+                keywords: ['industry', 'field service', 'tech startup', 'professional services', 'hospitality', 'wellness', 'nonprofit', 'who do you serve'],
+                response: "We serve 5 key industries: (1) Field Services & Sales - hands-free voice apps for field workers, (2) High-Growth Tech - fractional RevOps to look enterprise-ready, (3) Professional Services - project-centric CRM for complex delivery, (4) Hospitality & Wellness - AI-powered guest experiences, and (5) Non-Profits - modern tools on a non-profit budget."
+            },
+            speed: {
+                keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks'],
+                response: "We deliver in 3-6 weeks what traditionally takes 6-12 months. You'll see a working prototype in days, not months. Our 4-step process: (1) Discovery & Architecture, (2) Rapid Prototyping, (3) Development Sprint, and (4) Launch & Optimization."
+            },
+            pricing: {
+                keywords: ['cost', 'price', 'pricing', 'how much', 'budget', 'affordable'],
+                response: "Our projects typically range from $30K-$100K compared to traditional consultancies at $150K-$500K+. The exact cost depends on your specific needs and scope. I'd recommend booking a discovery call to discuss your project and get a tailored quote."
+            },
+            capabilities: {
+                keywords: ['capability', 'what can you do', 'services', 'offerings', 'solutions'],
+                response: "We offer two core capabilities: (1) Salesforce Core - implementations, integrations, custom development, and optimization, and (2) Custom AI Development - mobile apps, web portals, voice assistants, and intelligent automation. We excel at hybrid solutions that combine both."
+            },
+            mobile: {
+                keywords: ['mobile', 'app', 'ios', 'android', 'phone'],
+                response: "We build custom mobile applications that work seamlessly with Salesforce, including offline-capable field service apps with voice commands, mobile CRM access for teams, and customer-facing mobile experiences. Perfect for field workers who need hands-free, internet-off solutions."
+            },
+            team: {
+                keywords: ['team', 'who are you', 'about', 'founders', 'experts', 'wizards'],
+                response: "We're The CRM Wizards - a team of certified Salesforce experts and AI developers based in Colorado. We combine deep technical expertise with cutting-edge AI tools to deliver enterprise software at unprecedented speed. We're not replacing human expertise, we're amplifying it."
+            },
+            hybrid: {
+                keywords: ['hybrid', 'on platform', 'off platform', 'custom', 'flexibility'],
+                response: "Our Hybrid Advantage means we work both on-platform (deep Salesforce customization) and off-platform (custom web/mobile apps). This gives you Salesforce security for power users and flexible custom apps for customers, partners, or field workers without license bloat."
+            },
+            voice: {
+                keywords: ['voice', 'hands free', 'gloves', 'speech', 'talk'],
+                response: "We build voice-enabled mobile solutions perfect for field workers. Our apps work with gloves-on and internet-off, using speech recognition for hands-free data entry. Ideal for construction, field service, warehouse, or any environment where touchscreens aren't practical."
+            }
+        };
+        
         this.responses = {
             greeting: [
-                "Hello! I'm the CRM Wizards AI assistant. How can I help you today?",
-                "Hi there! Looking for Salesforce solutions or AI-powered development?",
-                "Welcome! I'm here to help you find the perfect solution for your business."
+                "Hello! I'm the CRM Wizards AI assistant. I can answer questions about our services, methodology, industries we serve, and more. What would you like to know?",
+                "Hi there! I'm here to help you learn about our AI-powered Salesforce solutions and 10x development methodology. What are you interested in?",
+                "Welcome! Ask me anything about The CRM Wizards - our capabilities, process, pricing, or how we can help your business."
             ],
-            services: [
-                "We specialize in Salesforce implementations, custom AI development, and hybrid on/off-platform solutions. Which area interests you?",
-                "Our core services include: Salesforce consulting, AI-powered web/mobile apps, and the 10x Methodology. What would you like to know more about?"
-            ],
-            industries: [
-                "We serve 5 key industries: Field Services, High-Growth Tech, Professional Services, Hospitality & Wellness, and Non-Profits. Which one describes your business?",
-                "We have specialized solutions for various industries. Tell me about your business and I can recommend the best approach."
-            ],
-            speed: [
-                "Our AI-augmented development process allows us to deliver in 1/10th the time of traditional consultancies - typically weeks instead of months!",
-                "We leverage AI tools and our 10x Methodology to accelerate development without compromising quality. Want to learn how?"
+            unknown: [
+                "That's a great question! I'd love to connect you with our team to discuss this in detail. Would you like to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>book a discovery call</a>?",
+                "I want to make sure you get the most accurate answer. Our team can provide detailed insights on this - shall I direct you to <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>schedule a call</a>?",
+                "Great question! For specific details like this, I recommend <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>booking a discovery call</a> with our team. They'll give you a comprehensive answer tailored to your needs."
             ],
             contact: [
-                "Great! You can book a discovery call using the form below, or contact us directly. Would you like me to guide you through the process?",
-                "I'd be happy to connect you with our team! Let me pull up our contact form for you."
-            ],
-            default: [
-                "That's a great question! Would you like to speak with one of our Salesforce experts? I can schedule a call for you.",
-                "I'd love to help you with that. Can you tell me more about your specific needs?",
-                "Interesting! Let me connect you with the right person on our team to discuss this further."
+                "Perfect! You can <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>book a discovery call here</a>. Our team will discuss your specific needs and show you exactly how we can help.",
+                "Great! Head over to our <a href='contact.html' style='color: var(--accent-cyan); text-decoration: underline;'>contact page</a> to schedule a discovery call. We'd love to discuss how we can deliver your project faster."
             ]
         };
         
@@ -282,19 +322,27 @@ class AIChatbot {
     generateResponse(message) {
         const lowerMessage = message.toLowerCase();
         
-        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+        // Check for greetings
+        if (lowerMessage.match(/\b(hello|hi|hey|greetings|good morning|good afternoon)\b/)) {
             return this.getRandomResponse('greeting');
-        } else if (lowerMessage.includes('service') || lowerMessage.includes('what do you')) {
-            return this.getRandomResponse('services');
-        } else if (lowerMessage.includes('industry') || lowerMessage.includes('field service') || lowerMessage.includes('startup')) {
-            return this.getRandomResponse('industries');
-        } else if (lowerMessage.includes('fast') || lowerMessage.includes('quick') || lowerMessage.includes('speed') || lowerMessage.includes('time')) {
-            return this.getRandomResponse('speed');
-        } else if (lowerMessage.includes('contact') || lowerMessage.includes('call') || lowerMessage.includes('meeting')) {
-            return this.getRandomResponse('contact');
-        } else {
-            return this.getRandomResponse('default');
         }
+        
+        // Check for contact/call requests
+        if (lowerMessage.match(/\b(contact|call|meeting|talk|speak|discuss|schedule|book)\b/)) {
+            return this.getRandomResponse('contact');
+        }
+        
+        // Search knowledge base for matching topics
+        for (const [topic, data] of Object.entries(this.knowledgeBase)) {
+            for (const keyword of data.keywords) {
+                if (lowerMessage.includes(keyword.toLowerCase())) {
+                    return data.response;
+                }
+            }
+        }
+        
+        // If no match found, suggest booking a call
+        return this.getRandomResponse('unknown');
     }
     
     getRandomResponse(category) {
