@@ -202,52 +202,52 @@ class AIChatbot {
         // Website content knowledge base
         this.knowledgeBase = {
             methodology: {
-                keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework'],
-                response: "Our 10x Methodology delivers enterprise software 10 times faster through: (1) AI-Augmented Coding for faster development, (2) Hundreds of modular components, (3) Rapid prototyping - working prototypes in days, (4) Focus on outcomes, not story points, and (5) Continuous deployment. We complete projects in weeks, not months!"
+                keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework', 'secret weapon'],
+                response: "Our 10x Methodology combines AI-augmented development, deep Salesforce expertise, and battle-tested frameworks. It's not magic—it's methodology. We deliver enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months."
             },
             pillars: {
-                keywords: ['pillar', 'ai augmented', 'modular', 'rapid prototype', 'continuous', 'deployment'],
-                response: "The 5 Pillars of our methodology are grounded in Technical Integrity and Robust Performance: AI-Augmented Coding, Modular Components, Rapid Prototyping, Focus on Outcomes, and Continuous Deployment. Together they enable radical innovation & speed to delivery."
+                keywords: ['pillar', 'five pillars', '5 pillars'],
+                response: "The 5 Pillars of 10x Development are: (1) AI-Augmented Coding - freeing experts to focus on complex business logic, (2) Modular Components - hundreds of reusable components to start with a foundation, (3) Rapid Prototyping - see your solution in days not months, (4) Focus on Outcomes - measured by business value delivered, and (5) Continuous Deployment - deploy multiple times per day. Grounded in Technical Integrity and Robust Performance."
             },
             salesforce: {
                 keywords: ['salesforce', 'crm', 'certified', 'platform', 'implementation'],
-                response: "We're Salesforce Registered Partners with deep platform expertise. We handle everything from core Salesforce implementations to custom integrations, flows, and advanced customizations. We can work on-platform for your power users or build custom off-platform apps that integrate seamlessly."
+                response: "We're Salesforce Registered Partners. Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We handle everything from greenfield implementations to complex migrations, integrations, and custom development."
             },
             ai: {
-                keywords: ['artificial intelligence', 'machine learning', 'ai development', 'voice', 'automation'],
-                response: "We build practical AI solutions including voice assistants for hands-free field work, intelligent automation, predictive analytics, and AI-powered customer experiences. Our AI integrates directly into your workflows - making it practical, not just buzzworthy."
+                keywords: ['artificial intelligence', 'ai development', 'automation', 'ai augmented'],
+                response: "We use AI-augmented development to accelerate boilerplate code generation, testing, and documentation—freeing our experts to focus on complex business logic and architecture. We also build custom AI solutions including intelligent automation and predictive analytics that integrate directly into your workflows."
             },
             industries: {
-                keywords: ['industry', 'field service', 'tech startup', 'professional services', 'hospitality', 'wellness', 'nonprofit', 'who do you serve'],
-                response: "We serve 5 key industries: (1) Field Services & Sales - hands-free voice apps for field workers, (2) High-Growth Tech - fractional RevOps to look enterprise-ready, (3) Professional Services - project-centric CRM for complex delivery, (4) Hospitality & Wellness - AI-powered guest experiences, and (5) Non-Profits - modern tools on a non-profit budget."
+                keywords: ['industry', 'field service', 'tech startup', 'professional services', 'hospitality', 'wellness', 'nonprofit', 'non-profit', 'who do you serve'],
+                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits. Each industry page shows specific use cases tailored to those sectors."
             },
             speed: {
-                keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks'],
-                response: "We deliver in 3-6 weeks what traditionally takes 6-12 months. You'll see a working prototype in days, not months. Our 4-step process: (1) Discovery & Architecture, (2) Rapid Prototyping, (3) Development Sprint, and (4) Launch & Optimization."
-            },
-            pricing: {
-                keywords: ['cost', 'price', 'pricing', 'how much', 'budget', 'affordable'],
-                response: "Our projects typically range from $30K-$100K compared to traditional consultancies at $150K-$500K+. The exact cost depends on your specific needs and scope. I'd recommend booking a discovery call to discuss your project and get a tailored quote."
+                keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks', 'months'],
+                response: "Traditional software projects take months and cost a fortune. We deploy enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months. Our 4-step process: (1) Discovery & Architecture, (2) Rapid Prototyping, (3) Development Sprint, (4) Launch & Optimization."
             },
             capabilities: {
                 keywords: ['capability', 'what can you do', 'services', 'offerings', 'solutions'],
-                response: "We offer two core capabilities: (1) Salesforce Core - implementations, integrations, custom development, and optimization, and (2) Custom AI Development - mobile apps, web portals, voice assistants, and intelligent automation. We excel at hybrid solutions that combine both."
+                response: "We have Two Core Capabilities: (1) Salesforce Core - certified experts handling implementations, integrations, custom development and optimization, and (2) Custom AI Development - web/mobile apps, voice assistants, and intelligent automation. We combine both for hybrid on/off-platform solutions."
             },
-            mobile: {
-                keywords: ['mobile', 'app', 'ios', 'android', 'phone'],
-                response: "We build custom mobile applications that work seamlessly with Salesforce, including offline-capable field service apps with voice commands, mobile CRM access for teams, and customer-facing mobile experiences. Perfect for field workers who need hands-free, internet-off solutions."
+            mission: {
+                keywords: ['mission', 'why', 'story', 'family'],
+                response: "Our mission is Making Enterprise Software Move at Startup Speed. Traditional consultancies take months to deliver what our AI-augmented team can build in weeks. We're smart, scrappy, and family-run. What motivates us: rapid innovation solves critical business challenges using less capital, while allowing us to carve out more time for the people who matter most."
             },
             team: {
-                keywords: ['team', 'who are you', 'about', 'founders', 'experts', 'wizards'],
-                response: "We're The CRM Wizards - a team of certified Salesforce experts and AI developers based in Colorado. We combine deep technical expertise with cutting-edge AI tools to deliver enterprise software at unprecedented speed. We're not replacing human expertise, we're amplifying it."
+                keywords: ['team', 'who are you', 'about', 'experts', 'wizards'],
+                response: "We're The CRM Wizards - Salesforce professionals with a passion for innovation, based in Colorado. We combine deep Salesforce expertise (55+ certifications) with cutting-edge AI tools. We're not replacing human expertise, we're amplifying it through our 10x Methodology."
             },
             hybrid: {
-                keywords: ['hybrid', 'on platform', 'off platform', 'custom', 'flexibility'],
-                response: "Our Hybrid Advantage means we work both on-platform (deep Salesforce customization) and off-platform (custom web/mobile apps). This gives you Salesforce security for power users and flexible custom apps for customers, partners, or field workers without license bloat."
+                keywords: ['hybrid', 'on platform', 'off platform', 'flexibility'],
+                response: "We don't just configure Salesforce—we build custom mobile and web applications that integrate seamlessly with your CRM. This gives you on-platform security for power users and off-platform flexibility for customers, field workers, or partners who may have limited Salesforce access."
             },
             voice: {
-                keywords: ['voice', 'hands free', 'gloves', 'speech', 'talk'],
-                response: "We build voice-enabled mobile solutions perfect for field workers. Our apps work with gloves-on and internet-off, using speech recognition for hands-free data entry. Ideal for construction, field service, warehouse, or any environment where touchscreens aren't practical."
+                keywords: ['voice', 'hands free', 'gloves', 'field workers'],
+                response: "We build voice-enabled mobile solutions that work when gloves-on and internet-off, perfect for field workers in tough environments where touchscreens fail. These apps use speech recognition for hands-free data entry and work with unreliable connectivity."
+            },
+            certifications: {
+                keywords: ['certification', 'credentials', 'qualified'],
+                response: "Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We're also Salesforce Registered Partners. We design solutions that scale."
             }
         };
         
