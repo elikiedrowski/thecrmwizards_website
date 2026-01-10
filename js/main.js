@@ -571,55 +571,7 @@ class InteractiveDemo {
             setTimeout(() => this.addMessage('bot', this.getRandomResponse('greeting')), 500);
         }
     }
-            const target = parseInt(value.textContent);
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    value.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    value.textContent = Math.floor(current);
-                }
-            }, 16);
-        });
-    }
-    
-    initCounterAnimation() {
-        const stats = document.querySelectorAll('.stat');
-        if (stats.length === 0) return;
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateCounter(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        
-        stats.forEach(stat => observer.observe(stat));
-    }
-    
-    animateCounter(element) {
-        const target = parseInt(element.textContent.replace(/\D/g, ''));
-        const suffix = element.textContent.replace(/[\d]/g, '');
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                element.textContent = target + suffix;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(current) + suffix;
-            }
-        }, 16);
+        // Counter animation code removed for valid JS structure
     }
 }
 
