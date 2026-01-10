@@ -46,41 +46,42 @@
         <div class="container">
             <h2 class="mb-3">What Happens Next?</h2>
             <div class="card-grid">
-                <footer class="footer">
-                    <div class="footer-top-main" style="display: flex; flex-direction: column; align-items: center; padding: 32px 0 0 0;">
-                        <div class="footer-logo-text" style="display: flex; align-items: center; margin-bottom: 24px;">
-                            <img src="assets/images/logo.svg" alt="Wizard Logo" class="footer-logo" style="height: 40px; margin-right: 18px; vertical-align: middle;">
-                            <span class="footer-logo-desc" style="font-size: 1.35rem; font-weight: 700; color: #b3e5fc; letter-spacing: 0.01em;">AI-powered Salesforce solutions delivered with "Wizard" speed.</span>
-                        </div>
-                        <div class="footer-main" style="width: 100%; max-width: 1100px; display: flex; justify-content: space-between; padding: 0 24px 32px 24px;">
-                            <div class="footer-col">
-                                <h3 style="color: #18d1ff; font-size: 1.5rem;">Solutions</h3>
-                                <ul>
-                                    <li><a href="capabilities.html">Capabilities</a></li>
-                                    <li><a href="methodology.html">Methodology</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-col">
-                                <h3 style="color: #18d1ff; font-size: 1.5rem;">Industries</h3>
-                                <ul>
-                                    <li><a href="industries/field-services.html">Field Service & Sales</a></li>
-                                    <li><a href="industries/high-growth-tech.html">High-Growth Tech</a></li>
-                                    <li><a href="industries/professional-services.html">Professional Services</a></li>
-                                    <li><a href="industries/hospitality-wellness.html">Hospitality, Health & Wellness</a></li>
-                                    <li><a href="industries/non-profits.html">Non-Profits</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-col">
-                                <h3 style="color: #18d1ff; font-size: 1.5rem;">Company</h3>
-                                <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="case-studies.html">Salesforce Registered Partner</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
+                    <h3>Within 24 Hours</h3>
+                    <p>We'll review your submission and reach out to schedule your discovery call.</p>
+                </div>
+                <div class="card">
+                    <div style="margin-bottom: 1rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" style="display: inline-block;"><rect x="7" y="2" width="10" height="20" rx="2" fill="#004B9B"/><rect x="8" y="4" width="8" height="14" rx="1" fill="#0066CC"/><circle cx="12" cy="20" r="1" fill="#0066CC"/></svg></div>
+                    <h3>Discovery Call</h3>
+                    <p>30-minute conversation to understand your needs and show you what's possible.</p>
+                </div>
+                <div class="card">
+                    <div style="margin-bottom: 1rem;"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" style="display: inline-block;"><path d="M9.19 6.35c-2.04 2.29-3.44 5.58-3.57 5.89L2 22l9.76-3.62c.31-.13 3.6-1.53 5.89-3.57C19.62 12.7 23 7.51 23 5.5c0-2.01-5.19 1.62-7.3 3.59z" fill="#004B9B"/><path d="M9 13c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm-4.88 8.88L2 24l2.12-2.12 2-2-2-2-2 2z" fill="#0066CC"/></svg></div>
+                    <h3>Custom Proposal</h3>
+                    <p>Detailed proposal with timeline, scope, and pricing. Most projects start within 1-2 weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Widget -->
+    <div class="ai-chat-widget">
+        <button class="chat-toggle" id="chat-toggle" title="Chat with our AI Assistant">
+            🧙‍♂️
+        </button>
+        
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <h4 style="margin: 0;">CRM Wizards AI Assistant</h4>
+                <p style="margin: 0; font-size: 0.875rem; opacity: 0.9;">How can we help you today?</p>
+            </div>
+            <div class="chat-body" id="chat-body"></div>
+            <div class="chat-footer">
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="text" id="chat-input" placeholder="Type your message..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    <button id="send-btn" class="btn btn-primary" style="padding: 10px 20px;">Send</button>
+                </div>
             </div>
         </div>
     </div>
