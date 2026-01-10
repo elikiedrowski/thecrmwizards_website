@@ -391,20 +391,17 @@ class AIChatbot {
     }
 
     performHardReset() {
-        // UI State: Clear chat bubbles
-        this.chatBody.innerHTML = '';
-        // Session Memory: Generate new session UUID
-        this.sessionId = this.generateUUID();
-        sessionStorage.setItem('chatSessionId', this.sessionId);
-        // LocalStorage: Purge chat history
+        // Purge chat history and session
         localStorage.removeItem('chatHistory');
         localStorage.setItem('chatWindowOpen', 'true');
-        // Token Counter: Reset (if tracked)
         localStorage.removeItem('chatTokenCount');
-        // Server-Side: (Placeholder for API call to clear thread/context)
-        // Example: fetch('/api/chat/reset', { method: 'POST', body: JSON.stringify({ sessionId: this.sessionId }) })
-        // Welcome Re-trigger: Show greeting
-        this.addMessage('bot', this.getRandomResponse('greeting'));
+        this.sessionId = this.generateUUID();
+        sessionStorage.setItem('chatSessionId', this.sessionId);
+        // Clear UI and reload greeting
+        this.chatBody.innerHTML = '';
+        setTimeout(() => {
+            this.addMessage('bot', this.getRandomResponse('greeting'));
+        }, 200);
     }
 
     generateUUID() {
