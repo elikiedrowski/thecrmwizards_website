@@ -571,6 +571,30 @@ class InteractiveDemo {
 document.addEventListener('DOMContentLoaded', function() {
     new InteractiveDemo();
     new SalesforceLeadForm('contact-form');
+    // Load shared footer partial to keep all pages in sync
+    (function loadSharedFooter() {
+        try {
+            const currentFooter = document.querySelector('footer.footer');
+            if (!currentFooter) return;
+            const isNested = /\/industries\//.test(window.location.pathname);
+            const base = isNested ? '../' : '';
+            const footerPath = base + 'assets/partials/footer.html';
+            fetch(footerPath)
+                .then(r => r.text())
+                .then(html => {
+                    const finalHtml = html.replaceAll('{{BASE}}', base);
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = finalHtml.trim();
+                    const fetched = wrapper.querySelector('footer.footer');
+                    if (fetched) {
+                        currentFooter.replaceWith(fetched);
+                    }
+                })
+                .catch(err => console.warn('Footer load failed:', err));
+        } catch (e) {
+            console.warn('Footer injection error:', e);
+        }
+    })();
 });
 
 // ============================================
