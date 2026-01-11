@@ -199,6 +199,10 @@ class AIChatbot {
         this.chatInput = document.getElementById('chat-input');
         this.sendBtn = document.getElementById('send-btn');
         
+        // Determine correct logo path based on page location
+        const isInSubfolder = window.location.pathname.includes('/industries/');
+        this.logoPath = isInSubfolder ? '../assets/images/logo.png' : 'assets/images/logo.png';
+        
         // Website content knowledge base
         this.knowledgeBase = {
             methodology: {
@@ -327,7 +331,7 @@ class AIChatbot {
         const messageDiv = document.createElement('div');
         messageDiv.className = `chat-message ${sender}-message`;
         messageDiv.innerHTML = `
-            <div class="message-avatar">${sender === 'bot' ? '<img src="assets/images/logo.png" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />' : '👤'}</div>
+            <div class="message-avatar">${sender === 'bot' ? `<img src="${this.logoPath}" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />` : '👤'}</div>
             <div class="message-content">${text}</div>
         `;
         this.chatBody.appendChild(messageDiv);
@@ -362,7 +366,7 @@ class AIChatbot {
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-message ${msg.sender}-message`;
             messageDiv.innerHTML = `
-                <div class="message-avatar">${msg.sender === 'bot' ? '<img src="assets/images/logo.png" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />' : '👤'}</div>
+                <div class="message-avatar">${msg.sender === 'bot' ? `<img src="${this.logoPath}" alt="Logo" style="width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;" />` : '👤'}</div>
                 <div class="message-content">${msg.text}</div>
             `;
             this.chatBody.appendChild(messageDiv);
