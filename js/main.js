@@ -371,9 +371,17 @@ class AIChatbot {
     }
 
     addResetButton() {
-        if (!this.chatWindow) return;
+        if (!this.chatWindow) {
+            // Retry if chat window not ready
+            setTimeout(() => this.addResetButton(), 100);
+            return;
+        }
         let footer = this.chatWindow.querySelector('.chat-footer');
-        if (!footer) return;
+        if (!footer) {
+            // Retry if footer not ready
+            setTimeout(() => this.addResetButton(), 100);
+            return;
+        }
         // Only add once
         if (footer.querySelector('.reset-chat-btn')) return;
         const resetBtn = document.createElement('button');
@@ -382,11 +390,11 @@ class AIChatbot {
         resetBtn.style.marginTop = '1rem';
         resetBtn.style.width = '100%';
         resetBtn.style.padding = '10px 0';
-        resetBtn.onclick = () => {
-            if (window.confirm('Delete history?')) {
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete the chat history?')) {
                 this.performHardReset();
             }
-        };
+        });
         footer.appendChild(resetBtn);
     }
 
@@ -453,28 +461,6 @@ class AIChatbot {
 let chatbot;
 document.addEventListener('DOMContentLoaded', function() {
     chatbot = new AIChatbot();
-    // Robustly add reset button after chat window/footer are present
-    function ensureResetButton() {
-        const chatWindow = document.getElementById('chat-window');
-        if (!chatWindow) return setTimeout(ensureResetButton, 200);
-        const footer = chatWindow.querySelector('.chat-footer');
-        if (!footer) return setTimeout(ensureResetButton, 200);
-        if (!footer.querySelector('.reset-chat-btn')) {
-            const resetBtn = document.createElement('button');
-            resetBtn.textContent = 'Reset Chat';
-            resetBtn.className = 'btn btn-secondary reset-chat-btn';
-            resetBtn.style.marginTop = '1rem';
-            resetBtn.style.width = '100%';
-            resetBtn.style.padding = '10px 0';
-            resetBtn.onclick = () => {
-                if (window.confirm('Delete history?')) {
-                    chatbot.performHardReset();
-                }
-            };
-            footer.appendChild(resetBtn);
-        }
-    }
-    ensureResetButton();
 });
 
 // ============================================
