@@ -99,7 +99,74 @@ Use `industries/field-services.html` as a template:
 - Fixed bottom-right corner
 - Click the wizard emoji to activate
 - Responds to common questions about services, industries, and timing
-- Customizable responses in `js/main.js` (lines 50-100)
+- Reset chat functionality to clear conversation history
+- Wizard logo displays in all bot messages
+- Customizable responses in `js/main.js`
+
+#### Chatbot Questions & Answers
+
+The chatbot can intelligently respond to questions about:
+
+**Greetings**
+- Keywords: hello, hi, hey, greetings, good morning, good afternoon
+- Response: Welcome message introducing the AI assistant
+
+**10x Methodology**
+- Keywords: methodology, 10x, process, how do you work, approach, framework, secret weapon, pillars, 5 pillars, five pillars
+- Response: Explains the 10x Methodology combining AI-augmented development, Salesforce expertise, and battle-tested frameworks with the 5 Pillars
+
+**5 Pillars Details**
+- Keywords: pillar, five pillars, 5 pillars
+- Response: Detailed breakdown of all 5 Pillars - AI-Augmented Coding, Modular Components, Rapid Prototyping, Focus on Outcomes, and Continuous Deployment
+
+**Salesforce**
+- Keywords: salesforce, crm, certified, platform, implementation
+- Response: Salesforce Registered Partner status, 55+ certifications, and expertise in implementations, migrations, integrations, and custom development
+
+**AI Development**
+- Keywords: artificial intelligence, ai development, automation, ai augmented
+- Response: AI-augmented development approach and custom AI solutions including intelligent automation and predictive analytics
+
+**Industries**
+- Keywords: industry, field service, tech startup, professional services, hospitality, wellness, nonprofit, non-profit, who do you serve
+- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits
+
+**Speed & Timeline**
+- Keywords: fast, quick, timeline, how long, duration, weeks, months
+- Response: Explains delivery in weeks (not months) and the 4-step process
+
+**Capabilities**
+- Keywords: capability, what can you do, services, offerings, solutions
+- Response: Two Core Capabilities - Salesforce Core and Custom AI Development, including hybrid solutions
+
+**Mission & Story**
+- Keywords: mission, why, story, family
+- Response: Mission statement about making enterprise software move at startup speed, family-run values
+
+**Team**
+- Keywords: team, who are you, about, experts, wizards
+- Response: Colorado-based Salesforce professionals with 55+ certifications and AI tools expertise
+
+**Hybrid Architecture**
+- Keywords: hybrid, on platform, off platform, flexibility
+- Response: Explains custom mobile/web apps that integrate with Salesforce for on/off-platform flexibility
+
+**Voice Solutions**
+- Keywords: voice, hands free, gloves, field workers
+- Response: Voice-enabled mobile solutions for gloves-on, internet-off field work environments
+
+**Certifications**
+- Keywords: certification, credentials, qualified
+- Response: 55+ Salesforce certifications across multiple tracks, Salesforce Registered Partner status
+
+**Contact Requests**
+- Keywords: contact, call, meeting, talk, speak, discuss, schedule, book
+- Response: Directs to contact page for booking a call
+
+**Unknown Questions**
+- For anything not matching the above topics, the bot suggests booking a call with the team for detailed answers
+
+> **Note:** This chatbot Q&A section is maintained automatically. When chatbot responses are updated in `js/main.js`, this documentation will be updated to reflect the changes.
 
 ### Voice Assistant (Optional)
 - Browser-based speech recognition
