@@ -1337,4 +1337,36 @@ p {
     .exit-popup-benefits {
         grid-template-columns: 1fr;
     }
+    
+    /* Capabilities Page Mobile Fixes */
+    section[style*="grid-template-columns: 1fr 2fr"] > div > div,
+    div[style*="grid-template-columns: 1fr 2fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .card {
+        padding: 1.5rem !important;
+    }
+    
+    .card h3 {
+        font-size: 1.125rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .card p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+    }
 }
