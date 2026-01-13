@@ -1338,11 +1338,9 @@ p {
         grid-template-columns: 1fr;
     }
     
-    /* Capabilities Page Mobile Fixes */
-    section[style*="grid-template-columns: 1fr 2fr"] > div > div,
-    div[style*="grid-template-columns: 1fr 2fr"] {
-        display: flex !important;
-        flex-direction: column !important;
+    /* Capabilities Page Mobile Fixes - Override inline styles */
+    .container > div[style*="max-width"] > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
         gap: 2rem !important;
     }
     
@@ -1368,5 +1366,19 @@ p {
     .card p {
         font-size: 1rem !important;
         line-height: 1.6 !important;
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+        min-height: 50vh !important;
+        padding: 60px 20px 40px !important;
+    }
+    
+    .section {
+        padding: 40px 20px !important;
+    }
+    
+    .container {
+        padding: 0 1rem !important;
     }
 }
