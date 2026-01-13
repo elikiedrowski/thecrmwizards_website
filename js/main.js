@@ -552,9 +552,59 @@ class SalesforceLeadForm {
 // Interactive Demo Features
 // ============================================
 
+// Counter Animation
+function animateCounter(element, target, suffix = '') {
+    let current = 0;
+    const increment = target / 50;
+    const duration = 1500;
+    const stepTime = duration / 50;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + suffix;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + suffix;
+        }
+    }, stepTime);
+}
+
+// Observe counters and animate when visible
+const observeCounters = () => {
+    const counters = document.querySelectorAll('.stat');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                const text = entry.target.textContent;
+                
+                // Parse the number and suffix
+                if (text.includes('+')) {
+                    const num = parseInt(text.replace('+', ''));
+                    animateCounter(entry.target, num, '+');
+                } else if (text.includes('x')) {
+                    const num = parseInt(text.replace('x', ''));
+                    animateCounter(entry.target, num, 'x');
+                } else {
+                    const num = parseInt(text);
+                    if (!isNaN(num)) {
+                        animateCounter(entry.target, num);
+                    }
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+};
+
 class InteractiveDemo {
-    // Placeholder for future interactive demo features
-    // Counter animation code removed for valid JS structure
+    constructor() {
+        // Initialize counter animations
+        observeCounters();
+    }
 }
 
 // Initialize interactive features
