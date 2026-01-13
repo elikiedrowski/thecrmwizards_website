@@ -1384,6 +1384,12 @@ p {
         line-height: 1.6 !important;
     }
     
+    /* Force industry cards single column with more specific selectors */
+    a.industry-card,
+    div.industry-card {
+        grid-column: 1 / -1 !important;
+    }
+    
     /* Hero section adjustments */
     .hero {
         min-height: 50vh !important;
