@@ -1354,6 +1354,22 @@ p {
         gap: 1.5rem !important;
     }
     
+    /* Industry cards - force single column and remove grid-column spans */
+    .industry-card {
+        grid-column: 1 / -1 !important;
+        min-height: auto !important;
+    }
+    
+    #industries .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    #industries .industry-card {
+        grid-column: 1 / -1 !important;
+        min-height: auto !important;
+    }
+    
     .card {
         padding: 1.5rem !important;
     }
