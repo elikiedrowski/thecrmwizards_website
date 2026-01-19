@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY_HERE"></script>
 </head>
 <body>
     <!-- Navigation (Same as index.html) -->
@@ -74,6 +76,11 @@
                     <!-- Debug mode disabled for production -->
                     <!-- <input type="hidden" name="debug" value="1"> -->
                     <!-- <input type="hidden" name="debugEmail" value="eli@thecrmwizards.com"> -->
+                    
+                    <!-- Bot Protection: Honeypot field (hidden from humans, bots will fill it) -->
+                    <input type="text" name="website_url" id="website_url" value="" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input type="hidden" name="form_timestamp" id="form_timestamp" value="">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
                     
                     <!-- Name Fields -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -144,7 +151,7 @@
                     </div>
                     
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                    <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" disabled>
                         Send My Request
                     </button>
                     
@@ -301,22 +308,119 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Check if form was successfully submitted - Updated 2026-01-06 v3
+        // Bot Protection & Form Handler - Updated 2026-01-18 v5 with reCAPTCHA
         document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const timestampField = document.getElementById('form_timestamp');
+            const honeypotField = document.getElementById('website_url');
+            const recaptchaResponse = document.getElementById('g-recaptcha-response');
+            
+            // Set form load timestamp
+            const formLoadTime = Date.now();
+            if (timestampField) {
+                timestampField.value = formLoadTime;
+            }
+            
+            // Enable submit button after short delay (bots submit instantly)
+            setTimeout(function() {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                }
+            }, 2000); // 2 second delay
+            
+            // Rate limiting: Check submission attempts
+            function checkRateLimit() {
+                const now = Date.now();
+                const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
+                
+                // Remove submissions older than 1 hour
+                const recentSubmissions = submissions.filter(time => now - time < 3600000);
+                
+                // Allow max 3 submissions per hour
+                if (recentSubmissions.length >= 3) {
+                    return false;
+                }
+                
+                // Add current submission
+                recentSubmissions.push(now);
+                localStorage.setItem('form_submissions', JSON.stringify(recentSubmissions));
+                return true;
+            }
+            
+            // Form submission handler with bot protection
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Check honeypot field (should be empty)
+                    if (honeypotField && honeypotField.value !== '') {
+                        console.log('Bot detected: Honeypot field filled');
+                        return false;
+                    }
+                    
+                    // Check minimum time (humans need at least 3 seconds to fill form)
+                    const timeSinceLoad = Date.now() - formLoadTime;
+                    if (timeSinceLoad < 3000) {
+                        console.log('Bot detected: Form submitted too quickly');
+                        alert('Please take a moment to review your information before submitting.');
+                        return false;
+                    }
+                    
+                    // Check rate limiting
+                    if (!checkRateLimit()) {
+                        console.log('Rate limit exceeded');
+                        alert('Too many submission attempts. Please try again later.');
+                        return false;
+                    }
+                    
+                    // Disable submit button to prevent double-submission
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Verifying...';
+                    }
+                    
+                    // Execute reCAPTCHA v3
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY_HERE', {action: 'submit'}).then(function(token) {
+                                // Add reCAPTCHA token to form
+                                if (recaptchaResponse) {
+                                    recaptchaResponse.value = token;
+                                }
+                                
+                                // Update button text
+                                if (submitBtn) {
+                                    submitBtn.textContent = 'Sending...';
+                                }
+                                
+                                // Submit the form
+                                form.submit();
+                            });
+                        });
+                    } else {
+                        // reCAPTCHA not loaded, submit anyway (fallback)
+                        console.warn('reCAPTCHA not loaded');
+                        if (submitBtn) {
+                            submitBtn.textContent = 'Sending...';
+                        }
+                        form.submit();
+                    }
+                    
+                    return false;
+                });
+            }
+            
+            // Check if form was successfully submitted
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('success') === 'true') {
-                // Show success message
                 const successMessage = document.getElementById('success-message');
                 const formContainer = document.getElementById('form-container');
                 
                 if (successMessage && formContainer) {
                     successMessage.style.display = 'block';
                     formContainer.style.display = 'none';
-                    
-                    // Scroll to success message
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // Clean URL after showing message
                     window.history.replaceState({}, document.title, window.location.pathname);
                 }
             }

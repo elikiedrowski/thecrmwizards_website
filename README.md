@@ -73,7 +73,25 @@ In `contact.html`, update these fields:
 3. Generate the form
 4. Map the custom fields for Industry and Project Type (replace `00N` field IDs)
 
-### 3. Test Hero Variations
+### 3. Configure Google reCAPTCHA v3 (Bot Protection)
+
+**Get your reCAPTCHA keys:**
+1. Go to https://www.google.com/recaptcha/admin/create
+2. Select reCAPTCHA v3
+3. Add your domain (e.g., thecrmwizards.com)
+4. Accept terms and submit
+5. Copy your Site Key and Secret Key
+
+**Update contact.html:**
+1. Replace `YOUR_RECAPTCHA_SITE_KEY_HERE` in the `<head>` section (line ~11)
+2. Replace `YOUR_RECAPTCHA_SITE_KEY_HERE` in the JavaScript (line ~306)
+
+**Verify in Salesforce (Optional):**
+- The reCAPTCHA token is sent in the `g-recaptcha-response` field
+- You can verify it server-side in Salesforce with the Secret Key
+- Or simply having it enabled will block most bots automatically
+
+### 4. Test Hero Variations
 
 The homepage includes 3 hero options you can test:
 - **Option A**: Speed & Efficiency angle
@@ -82,7 +100,7 @@ The homepage includes 3 hero options you can test:
 
 Click the buttons in the top-right of the hero section to switch between them. Choose your favorite and remove the switcher before launch.
 
-### 4. Complete Industry Pages
+### 5. Complete Industry Pages
 
 Use `industries/field-services.html` as a template:
 
@@ -202,6 +220,7 @@ Mobile menu automatically activates on smaller screens.
 - ✅ Industry & project type selectors
 - ✅ Timeline preference
 - ✅ Mobile-friendly form
+- ✅ Multi-layer bot protection (honeypot, time-based, rate limiting, reCAPTCHA v3)
 
 ### 10x Methodology
 - ✅ 5 pillars of fast development
@@ -264,6 +283,7 @@ Upload all files via FTP to your web host. No special configuration needed.
 
 - [ ] Add your logo to `assets/images/logo.png`
 - [ ] Configure Salesforce Org ID in `contact.html`
+- [ ] Configure reCAPTCHA Site Key in `contact.html` (2 places)
 - [ ] Choose and set your preferred hero variation
 - [ ] Remove hero switcher buttons (or hide with CSS)
 - [ ] Create remaining 4 industry pages
