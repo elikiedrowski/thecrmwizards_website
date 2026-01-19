@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY_HERE"></script>
+    <!-- Google reCAPTCHA v3 - Add your site key below to enable -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY_HERE"></script> -->
 </head>
 <body>
     <!-- Navigation (Same as index.html) -->
@@ -351,11 +351,10 @@
             // Form submission handler with bot protection
             if (form) {
                 form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
                     // Check honeypot field (should be empty)
                     if (honeypotField && honeypotField.value !== '') {
                         console.log('Bot detected: Honeypot field filled');
+                        e.preventDefault();
                         return false;
                     }
                     
@@ -363,6 +362,7 @@
                     const timeSinceLoad = Date.now() - formLoadTime;
                     if (timeSinceLoad < 3000) {
                         console.log('Bot detected: Form submitted too quickly');
+                        e.preventDefault();
                         alert('Please take a moment to review your information before submitting.');
                         return false;
                     }
@@ -370,6 +370,7 @@
                     // Check rate limiting
                     if (!checkRateLimit()) {
                         console.log('Rate limit exceeded');
+                        e.preventDefault();
                         alert('Too many submission attempts. Please try again later.');
                         return false;
                     }
@@ -377,37 +378,32 @@
                     // Disable submit button to prevent double-submission
                     if (submitBtn) {
                         submitBtn.disabled = true;
-                        submitBtn.textContent = 'Verifying...';
+                        submitBtn.textContent = 'Sending...';
                     }
                     
-                    // Execute reCAPTCHA v3
-                    if (typeof grecaptcha !== 'undefined') {
+                    // If reCAPTCHA v3 is loaded, use it
+                    if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
+                        e.preventDefault();
                         grecaptcha.ready(function() {
                             grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY_HERE', {action: 'submit'}).then(function(token) {
                                 // Add reCAPTCHA token to form
                                 if (recaptchaResponse) {
                                     recaptchaResponse.value = token;
                                 }
-                                
-                                // Update button text
-                                if (submitBtn) {
-                                    submitBtn.textContent = 'Sending...';
-                                }
-                                
-                                // Submit the form
-                                form.submit();
+                                // Submit the form programmatically
+                                HTMLFormElement.prototype.submit.call(form);
+                            }).catch(function(err) {
+                                console.error('reCAPTCHA error:', err);
+                                // Submit anyway if reCAPTCHA fails
+                                HTMLFormElement.prototype.submit.call(form);
                             });
                         });
-                    } else {
-                        // reCAPTCHA not loaded, submit anyway (fallback)
-                        console.warn('reCAPTCHA not loaded');
-                        if (submitBtn) {
-                            submitBtn.textContent = 'Sending...';
-                        }
-                        form.submit();
+                        return false;
                     }
                     
-                    return false;
+                    // reCAPTCHA not configured - allow normal submission (already has honeypot + time-based + rate limiting protection)
+                    console.log('Form submitting without reCAPTCHA (other bot protections active)');
+                    return true;
                 });
             }
             
