@@ -69,7 +69,7 @@
                     <p class="text-center mb-3" style="color: #666;">Fill out the form below and we'll get back to you!</p>
                     
                     <!-- Salesforce Web-to-Lead Form -->
-                    <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dal00000gthwU">
+                    <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
                     <!-- Hidden Salesforce Fields -->
                     <input type="hidden" name="oid" value="00Dal00000gthwU">
                     <input type="hidden" name="retURL" value="https://elikiedrowski.github.io/thecrmwizards_website/contact.html?success=true">
@@ -78,9 +78,11 @@
                     <!-- <input type="hidden" name="debugEmail" value="eli@thecrmwizards.com"> -->
                     
                     <!-- Bot Protection: Honeypot field (hidden from humans, bots will fill it) -->
-                    <input type="text" name="website_url" id="website_url" value="" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <input type="text" name="00N8b00000XXXXX" id="website_url" value="" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <input type="hidden" name="form_timestamp" id="form_timestamp" value="">
                     <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" value="">
+                    <!-- Verification Token - Changes every page load -->
+                    <input type="hidden" name="00N8b00000YYYYY" id="verification_token" value="">
                     
                     <!-- Name Fields -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -308,18 +310,27 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Bot Protection & Form Handler - Updated 2026-01-18 v5 with reCAPTCHA
+        // Bot Protection & Form Handler - Updated 2026-01-19 v6 with Enhanced Protection
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
             const timestampField = document.getElementById('form_timestamp');
             const honeypotField = document.getElementById('website_url');
             const recaptchaResponse = document.getElementById('g-recaptcha-response');
+            const verificationToken = document.getElementById('verification_token');
             
-            // Set form load timestamp
+            // Generate unique verification token
+            function generateToken() {
+                return 'VERIFY-' + Date.now() + '-' + Math.random().toString(36).substring(2, 15);
+            }
+            
+            // Set form load timestamp and verification token
             const formLoadTime = Date.now();
             if (timestampField) {
                 timestampField.value = formLoadTime;
+            }
+            if (verificationToken) {
+                verificationToken.value = generateToken();
             }
             
             // Enable submit button after short delay (bots submit instantly)
