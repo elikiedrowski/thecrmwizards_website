@@ -610,7 +610,7 @@ class InteractiveDemo {
 // Initialize interactive features
 document.addEventListener('DOMContentLoaded', function() {
     new InteractiveDemo();
-    new SalesforceLeadForm('contact-form');
+    // Contact form is now handled by contact-form-handler.js
     // Load shared footer partial to keep all pages in sync
     (function loadSharedFooter() {
         try {

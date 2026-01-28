@@ -8,8 +8,8 @@
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Google reCAPTCHA v3 - Add your site key below to enable -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY_HERE"></script> -->
+    <!-- Google reCAPTCHA v3 - Active -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lf9bFgsAAAAAMe7u8nK9hLiZbl8x_dHOiiYFEZv" async defer></script>
 </head>
 <body>
     <!-- Navigation (Same as index.html) -->
@@ -69,7 +69,8 @@
                     <p class="text-center mb-3" style="color: #666;">Fill out the form below and we'll get back to you!</p>
                     
                     <!-- Salesforce Web-to-Lead Form -->
-                    <form id="contact-form" method="POST" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
+                    <!-- Form action removed - ALL submissions go through JavaScript validation -->
+                    <form id="contact-form" method="POST" action="#" data-salesforce-url="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
                     <!-- Hidden Salesforce Fields -->
                     <input type="hidden" name="oid" value="00Dal00000gthwU">
                     <input type="hidden" name="retURL" value="https://elikiedrowski.github.io/thecrmwizards_website/contact.html?success=true">
@@ -154,11 +155,12 @@
                     
                     <!-- Submit Button -->
                     <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" disabled>
-                        Send My Request
+                        Loading Protection...
                     </button>
                     
                     <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #666;">
-                        We respect your privacy. Your information will never be shared.
+                        We respect your privacy. Your information will never be shared.<br>
+                        <small style="opacity: 0.7;">🛡️ Protected by advanced bot detection and Google reCAPTCHA</small>
                     </p>
                 </form>
                 </div>
@@ -229,6 +231,9 @@
             </div>
         </div>
     </div>
+    <!-- Form Protection Scripts -->
+    <script src="js/form-protection.js"></script>
+    <script src="js/contact-form-handler.js"></script>
     <script src="js/main.js"></script>
     <style>
         .chat-message {
@@ -310,121 +315,8 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Bot Protection & Form Handler - Updated 2026-01-19 v6 with Enhanced Protection
+        // Success message handler
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contact-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const timestampField = document.getElementById('form_timestamp');
-            const honeypotField = document.getElementById('website_url');
-            const recaptchaResponse = document.getElementById('g-recaptcha-response');
-            const verificationToken = document.getElementById('verification_token');
-            
-            // Generate unique verification token
-            function generateToken() {
-                return 'VERIFY-' + Date.now() + '-' + Math.random().toString(36).substring(2, 15);
-            }
-            
-            // Set form load timestamp and verification token
-            const formLoadTime = Date.now();
-            if (timestampField) {
-                timestampField.value = formLoadTime;
-            }
-            if (verificationToken) {
-                verificationToken.value = generateToken();
-            }
-            
-            // Enable submit button after short delay (bots submit instantly)
-            setTimeout(function() {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                }
-            }, 2000); // 2 second delay
-            
-            // Rate limiting: Check submission attempts
-            function checkRateLimit() {
-                const now = Date.now();
-                const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
-                
-                // Remove submissions older than 1 hour
-                const recentSubmissions = submissions.filter(time => now - time < 3600000);
-                
-                // Allow max 3 submissions per hour
-                if (recentSubmissions.length >= 3) {
-                    return false;
-                }
-                
-                // Add current submission
-                recentSubmissions.push(now);
-                localStorage.setItem('form_submissions', JSON.stringify(recentSubmissions));
-                return true;
-            }
-            
-            // Form submission handler with bot protection
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    // Check honeypot field (should be empty)
-                    if (honeypotField && honeypotField.value !== '') {
-                        console.log('Bot detected: Honeypot field filled');
-                        e.preventDefault();
-                        return false;
-                    }
-                    
-                    // Check minimum time (humans need at least 3 seconds to fill form)
-                    const timeSinceLoad = Date.now() - formLoadTime;
-                    if (timeSinceLoad < 3000) {
-                        console.log('Bot detected: Form submitted too quickly');
-                        e.preventDefault();
-                        alert('Please take a moment to review your information before submitting.');
-                        return false;
-                    }
-                    
-                    // Check rate limiting
-                    if (!checkRateLimit()) {
-                        console.log('Rate limit exceeded');
-                        e.preventDefault();
-                        alert('Too many submission attempts. Please try again later.');
-                        return false;
-                    }
-                    
-                    // Disable submit button to prevent double-submission
-                    if (submitBtn) {
-                        submitBtn.disabled = true;
-                        submitBtn.textContent = 'Sending...';
-                    }
-                    
-                    // If reCAPTCHA v3 is loaded, use it
-                    if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
-                        e.preventDefault();
-                        grecaptcha.ready(function() {
-                            grecaptcha.execute('YOUR_RECAPTCHA_SITE_KEY_HERE', {action: 'submit'}).then(function(token) {
-                                // Add reCAPTCHA token to form
-                                if (recaptchaResponse) {
-                                    recaptchaResponse.value = token;
-                                }
-                                // Submit the form programmatically
-                                HTMLFormElement.prototype.submit.call(form);
-                            }).catch(function(err) {
-                                console.error('reCAPTCHA error:', err);
-                                // Submit anyway if reCAPTCHA fails
-                                HTMLFormElement.prototype.submit.call(form);
-                            });
-                        });
-                        return false;
-                    }
-                    
-                    // reCAPTCHA not configured - allow normal submission (already has honeypot + time-based + rate limiting protection)
-                    console.log('Form submitting without reCAPTCHA (other bot protections active)');
-                    return true;
-                });
-            }
-            
-            // Check if form was successfully submitted
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('success') === 'true') {
-                const successMessage = document.getElementById('success-message');
-                const formContainer = document.getElementById('form-container');
-                
-                if (successMessage && formContainer) {
                     successMessage.style.display = 'block';
                     formContainer.style.display = 'none';
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
