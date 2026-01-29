@@ -132,12 +132,7 @@ class FormProtection {
             return { valid: true }; // Message is optional
         }
 
-        // Check minimum length for meaningful message
-        if (message.trim().length < 10) {
-            return { valid: false, error: 'Please provide more details about your project' };
-        }
-
-        // Check for suspicious patterns
+        // Message is optional, but if provided, check for suspicious patterns
         for (const pattern of this.suspiciousPatterns) {
             if (pattern.test(message)) {
                 return { valid: false, error: 'Message contains invalid content' };
