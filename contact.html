@@ -315,8 +315,12 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Success message handler
+        // Success message handler (for ?success=true redirect fallback)
         document.addEventListener('DOMContentLoaded', function() {
+            if (window.location.search.includes('success=true')) {
+                var formContainer = document.getElementById('form-container');
+                var successMessage = document.getElementById('success-message');
+                if (formContainer && successMessage) {
                     successMessage.style.display = 'block';
                     formContainer.style.display = 'none';
                     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
