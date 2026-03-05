@@ -177,34 +177,36 @@ class ContactFormHandler {
                 this.submitButton.textContent = 'Submitting...';
             }
 
-            // Submit form to Salesforce programmatically
-            // This prevents bots from bypassing validation by posting directly
-            const salesforceUrl = this.form.getAttribute('data-salesforce-url');
-            if (!salesforceUrl) {
-                throw new Error('Salesforce URL not configured');
+            // Submit form through Cloudflare Worker (server-side reCAPTCHA verification)
+            const workerUrl = this.form.getAttribute('data-worker-url');
+            if (!workerUrl) {
+                throw new Error('Worker URL not configured');
             }
 
-            // Create FormData and submit via fetch or form submit
             const formDataToSubmit = new FormData(this.form);
-            
-            // Use the native form submission (which will now go through our validation)
-            const tempForm = document.createElement('form');
-            tempForm.method = 'POST';
-            tempForm.action = salesforceUrl;
-            tempForm.style.display = 'none';
-            
-            // Copy all form fields
-            for (const [key, value] of formDataToSubmit.entries()) {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = value;
-                tempForm.appendChild(input);
+
+            console.log('Submitting to worker for server-side verification...');
+            const response = await fetch(workerUrl, {
+                method: 'POST',
+                body: formDataToSubmit,
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Submission failed');
             }
-            
-            document.body.appendChild(tempForm);
-            console.log('✅ Validation passed - submitting to Salesforce');
-            tempForm.submit();
+
+            console.log('Submission verified and forwarded to Salesforce');
+
+            // Show success message
+            const formContainer = document.getElementById('form-container');
+            const successMessage = document.getElementById('success-message');
+            if (formContainer && successMessage) {
+                formContainer.style.display = 'none';
+                successMessage.style.display = 'block';
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
 
         } catch (error) {
             console.error('Form submission error:', error);
