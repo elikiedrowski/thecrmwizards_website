@@ -163,7 +163,7 @@ The chatbot can intelligently respond to questions about:
 
 **Industries**
 - Keywords: industry, industries, field service, construction, tech startup, saas, professional services, insurance, retail, hospitality, wellness, nonprofit, non-profit, who do you serve
-- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits - and notes clients in Construction, Insurance and Retail
+- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits - notes clients in Construction, Insurance and Retail, and points to the Our Work page
 
 **Speed & Timeline**
 - Keywords: fast, quick, timeline, how long, duration, weeks, months

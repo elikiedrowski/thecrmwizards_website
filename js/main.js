@@ -239,7 +239,7 @@ class AIChatbot {
             },
             industries: {
                 keywords: ['industry', 'industries', 'field service', 'construction', 'tech startup', 'saas', 'professional services', 'insurance', 'retail', 'hospitality', 'wellness', 'nonprofit', 'non-profit', 'who do you serve'],
-                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits. We also work with clients in Construction, Insurance and Retail. Each industry page shows specific use cases tailored to those sectors."
+                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits. We also work with clients in Construction, Insurance and Retail. See real examples on our Our Work page. Each industry page shows specific use cases tailored to those sectors."
             },
             speed: {
                 keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks', 'months'],

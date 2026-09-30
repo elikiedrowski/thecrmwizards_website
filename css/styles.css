@@ -1528,3 +1528,18 @@ p {
     margin-top: auto;
     padding-top: 0.5rem;
 }
+
+/* Capabilities pillars */
+.capability-pillar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .capability-pillar {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
