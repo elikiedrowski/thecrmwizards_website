@@ -149,9 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function switchHero(option) {
     const heroes = {
         A: {
-            badge: '🚀 AI-Powered Development',
-            title: 'Enterprise Software at the Speed of AI',
-            subtitle: 'We are The CRM Wizards. We combine deep Salesforce certification with next-gen AI development to deliver custom solutions in 1/10th the time of traditional consultancies.',
+            badge: '🚀 AI Automation · CRM Architecture',
+            title: 'AI That Actually Does the Work. Built on Your CRM.',
+            subtitle: 'We are The CRM Wizards. We design and build AI automation and CRM architecture for Salesforce, Zoho, AWS and custom platforms. Systems that remove manual work, with guardrails built in, delivered in weeks.',
             primaryBtn: 'See How We Do It',
             secondaryBtn: 'Explore Industries'
         },
@@ -205,9 +205,25 @@ class AIChatbot {
         
         // Website content knowledge base
         this.knowledgeBase = {
+            work: {
+                keywords: ['what have you built', 'recent work', 'recent project', 'examples', 'case stud', 'portfolio', 'past work', 'who have you worked'],
+                response: "Recent work includes an AI sales productivity engine and a customer service automation suite for a high-growth SaaS company, an AI document-extraction tool and field service automation for a construction firm, an AI receptionist and automated lead intake for an insurance client, a custom project management app inside a professional services firm's CRM, an AI-powered site builder for Salesforce Commerce Cloud, and fundraising automation with donor analytics for a non-profit."
+            },
+            platforms: {
+                keywords: ['zoho', 'aws', 'amazon web', 'commerce cloud', 'other crm', 'platforms', 'besides salesforce', 'not on salesforce', 'custom platform'],
+                response: "Salesforce is where we're deepest, with 55+ certifications and Registered Partner status. We also architect, integrate and build AI automation on Zoho, Salesforce Commerce Cloud, AWS and custom platforms. If your team runs on something else, tell us about it and we'll let you know how we can help."
+            },
+            aiAutomation: {
+                keywords: ['ai automation', 'automation', 'automate', 'receptionist', 'triage', 'document extraction', 'ocr', 'lead scoring', 'customer service', 'chatbot', 'artificial intelligence', 'ai solution'],
+                response: "We build AI systems that remove manual work, not just chatbots. Examples include email triage and classification, document extraction that fills in CRM records, AI receptionists, lead scoring with AI-generated account briefs, and step-by-step automation of routine requests like cancellations and refunds. Every build includes guardrails such as verification steps and human review where it matters."
+            },
+            guardrails: {
+                keywords: ['guardrail', 'safety', 'hallucinat', 'human in the loop', 'human review', 'trust the ai'],
+                response: "Guardrails are built into every automation we deliver. That means verification steps, human review where it matters, and a gradual path to hands-off so automation only takes over once it has proven itself."
+            },
             methodology: {
                 keywords: ['methodology', '10x', 'process', 'how do you work', 'approach', 'framework', 'secret weapon', 'pillars', '5 pillars', 'five pillars'],
-                response: "Our 10x Methodology combines AI-augmented development, deep Salesforce expertise, and battle-tested frameworks. It's not magic—it's methodology. We deliver enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months. The 5 Pillars of 10x Development are: (1) AI-Augmented Coding, (2) Modular Components, (3) Rapid Prototyping, (4) Focus on Outcomes, and (5) Continuous Deployment."
+                response: "Our 10x Methodology combines AI-augmented development, deep CRM expertise, and battle-tested frameworks. It's not magic—it's methodology. We deliver enterprise-grade CRM, AI automation and custom web/mobile solutions in weeks, not months. The 5 Pillars of 10x Development are: (1) AI-Augmented Coding, (2) Modular Components, (3) Rapid Prototyping, (4) Focus on Outcomes, and (5) Continuous Deployment."
             },
             pillars: {
                 keywords: ['pillar', 'five pillars', '5 pillars'],
@@ -215,23 +231,23 @@ class AIChatbot {
             },
             salesforce: {
                 keywords: ['salesforce', 'crm', 'certified', 'platform', 'implementation'],
-                response: "We're Salesforce Registered Partners. Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We handle everything from greenfield implementations to complex migrations, integrations, and custom development."
+                response: "We're Salesforce Registered Partners. Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We handle everything from greenfield implementations to complex migrations, integrations, and custom development. We also work on Zoho, Salesforce Commerce Cloud, AWS and custom platforms."
             },
             ai: {
-                keywords: ['artificial intelligence', 'ai development', 'automation', 'ai augmented'],
-                response: "We use AI-augmented development to accelerate boilerplate code generation, testing, and documentation—freeing our experts to focus on complex business logic and architecture. We also build custom AI solutions including intelligent automation and predictive analytics that integrate directly into your workflows."
+                keywords: ['ai development', 'ai augmented', 'ai-augmented'],
+                response: "We use AI-augmented development to accelerate boilerplate code generation, testing, and documentation—freeing our experts to focus on complex business logic and architecture. We also build AI automation for our clients, from email triage and document extraction to AI receptionists, integrated directly into your workflows."
             },
             industries: {
-                keywords: ['industry', 'field service', 'tech startup', 'professional services', 'hospitality', 'wellness', 'nonprofit', 'non-profit', 'who do you serve'],
-                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits. Each industry page shows specific use cases tailored to those sectors."
+                keywords: ['industry', 'industries', 'field service', 'construction', 'tech startup', 'saas', 'professional services', 'insurance', 'retail', 'hospitality', 'wellness', 'nonprofit', 'non-profit', 'who do you serve'],
+                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits. We also work with clients in Construction, Insurance and Retail. Each industry page shows specific use cases tailored to those sectors."
             },
             speed: {
                 keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks', 'months'],
-                response: "Traditional software projects take months and cost a fortune. We deploy enterprise-grade Salesforce and custom web/mobile solutions in weeks, not months. Our 4-step process: (1) Discovery & Architecture, (2) Rapid Prototyping, (3) Development Sprint, (4) Launch & Optimization."
+                response: "Traditional software projects take months and cost a fortune. We deploy enterprise-grade CRM, AI automation and custom web/mobile solutions in weeks, not months. Our 4-step process: (1) Discovery & Architecture, (2) Rapid Prototyping, (3) Development Sprint, (4) Launch & Optimization."
             },
             capabilities: {
-                keywords: ['capability', 'what can you do', 'services', 'offerings', 'solutions'],
-                response: "We have Two Core Capabilities: (1) Salesforce Core - certified experts handling implementations, integrations, custom development and optimization, and (2) Custom AI Development - web/mobile apps, voice assistants, and intelligent automation. We combine both for hybrid on/off-platform solutions."
+                keywords: ['capability', 'capabilities', 'what can you do', 'what do you do', 'services', 'offerings', 'solutions'],
+                response: "We have three core capabilities: (1) AI Automation - systems that remove manual work, with guardrails built in, (2) CRM Architecture & Integration - certified Salesforce experts who also deliver on Zoho, Salesforce Commerce Cloud, AWS and custom platforms, and (3) Custom Apps & Platforms - web and mobile apps, in-CRM tools and portals."
             },
             mission: {
                 keywords: ['mission', 'why', 'story', 'family'],
@@ -239,11 +255,11 @@ class AIChatbot {
             },
             team: {
                 keywords: ['team', 'who are you', 'about', 'experts', 'wizards'],
-                response: "We're The CRM Wizards - Salesforce professionals with a passion for innovation, based in Colorado. We combine deep Salesforce expertise (55+ certifications) with cutting-edge AI tools. We're not replacing human expertise, we're amplifying it through our 10x Methodology."
+                response: "We're The CRM Wizards - Salesforce and AI professionals with a passion for innovation, based in Colorado. We combine deep Salesforce expertise (55+ certifications) with AI automation and integration work across Zoho, AWS and custom platforms. We're not replacing human expertise, we're amplifying it through our 10x Methodology."
             },
             hybrid: {
                 keywords: ['hybrid', 'on platform', 'off platform', 'flexibility'],
-                response: "We don't just configure Salesforce—we build custom mobile and web applications that integrate seamlessly with your CRM. This gives you on-platform security for power users and off-platform flexibility for customers, field workers, or partners who may have limited Salesforce access."
+                response: "We don't just configure your CRM—we build custom mobile and web applications that integrate seamlessly with it. This gives you on-platform security for power users and off-platform flexibility for customers, field workers, or partners who may have limited CRM access."
             },
             voice: {
                 keywords: ['voice', 'hands free', 'gloves', 'field workers'],
@@ -258,7 +274,7 @@ class AIChatbot {
         this.responses = {
             greeting: [
                 "Hello! I'm the CRM Wizards AI assistant. I can answer questions about our services, methodology, industries we serve, and more. What would you like to know?",
-                "Hi there! I'm here to help you learn about our AI-powered Salesforce solutions and 10x development methodology. What are you interested in?",
+                "Hi there! I'm here to help you learn about our AI automation, CRM solutions and 10x development methodology. What are you interested in?",
                 "Welcome! Ask me anything about The CRM Wizards - our capabilities, process, or how we can help your business."
             ],
             unknown: [
@@ -777,7 +793,7 @@ class ExitIntentPopup {
             <button class="exit-popup-close" onclick="document.getElementById('exitPopup').classList.remove('active')">×</button>
             <div class="exit-popup-icon">✅</div>
             <h2>Thank You!</h2>
-            <p>Check your email for your free Salesforce Readiness Assessment and 10x Methodology guide.</p>
+            <p>Check your email for your free AI Readiness Assessment and 10x Methodology guide.</p>
             <p style="margin-top: 2rem;"><a href="contact.html" class="btn btn-primary">Schedule Your Discovery Call</a></p>
         `;
         

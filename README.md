@@ -129,9 +129,25 @@ The chatbot can intelligently respond to questions about:
 - Keywords: hello, hi, hey, greetings, good morning, good afternoon
 - Response: Welcome message introducing the AI assistant
 
+**Recent Work**
+- Keywords: what have you built, recent work, recent project, examples, case stud, portfolio, past work, who have you worked
+- Response: Summary of recent anonymised client projects across SaaS, construction, insurance, professional services, retail and non-profit
+
+**Platforms**
+- Keywords: zoho, aws, amazon web, commerce cloud, other crm, platforms, besides salesforce, not on salesforce, custom platform
+- Response: Salesforce is the deepest expertise, with delivery on Zoho, Salesforce Commerce Cloud, AWS and custom platforms too
+
+**AI Automation**
+- Keywords: ai automation, automation, automate, receptionist, triage, document extraction, ocr, lead scoring, customer service, chatbot, artificial intelligence, ai solution
+- Response: AI systems that remove manual work, with examples and the guardrails included in every build
+
+**Guardrails**
+- Keywords: guardrail, safety, hallucinat, human in the loop, human review, trust the ai
+- Response: Verification steps, human review where it matters, and a gradual path to hands-off
+
 **10x Methodology**
 - Keywords: methodology, 10x, process, how do you work, approach, framework, secret weapon, pillars, 5 pillars, five pillars
-- Response: Explains the 10x Methodology combining AI-augmented development, Salesforce expertise, and battle-tested frameworks with the 5 Pillars
+- Response: Explains the 10x Methodology combining AI-augmented development, CRM expertise, and battle-tested frameworks with the 5 Pillars
 
 **5 Pillars Details**
 - Keywords: pillar, five pillars, 5 pillars
@@ -139,23 +155,23 @@ The chatbot can intelligently respond to questions about:
 
 **Salesforce**
 - Keywords: salesforce, crm, certified, platform, implementation
-- Response: Salesforce Registered Partner status, 55+ certifications, and expertise in implementations, migrations, integrations, and custom development
+- Response: Salesforce Registered Partner status, 55+ certifications, and expertise in implementations, migrations, integrations, and custom development, plus a note on other platforms
 
 **AI Development**
-- Keywords: artificial intelligence, ai development, automation, ai augmented
-- Response: AI-augmented development approach and custom AI solutions including intelligent automation and predictive analytics
+- Keywords: ai development, ai augmented, ai-augmented
+- Response: AI-augmented development approach, plus the AI automation built for clients
 
 **Industries**
-- Keywords: industry, field service, tech startup, professional services, hospitality, wellness, nonprofit, non-profit, who do you serve
-- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits
+- Keywords: industry, industries, field service, construction, tech startup, saas, professional services, insurance, retail, hospitality, wellness, nonprofit, non-profit, who do you serve
+- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional Services, Hospitality/Health & Wellness, and Non-Profits - and notes clients in Construction, Insurance and Retail
 
 **Speed & Timeline**
 - Keywords: fast, quick, timeline, how long, duration, weeks, months
 - Response: Explains delivery in weeks (not months) and the 4-step process
 
 **Capabilities**
-- Keywords: capability, what can you do, services, offerings, solutions
-- Response: Two Core Capabilities - Salesforce Core and Custom AI Development, including hybrid solutions
+- Keywords: capability, capabilities, what can you do, what do you do, services, offerings, solutions
+- Response: Three core capabilities - AI Automation, CRM Architecture & Integration, and Custom Apps & Platforms
 
 **Mission & Story**
 - Keywords: mission, why, story, family
@@ -163,11 +179,11 @@ The chatbot can intelligently respond to questions about:
 
 **Team**
 - Keywords: team, who are you, about, experts, wizards
-- Response: Colorado-based Salesforce professionals with 55+ certifications and AI tools expertise
+- Response: Colorado-based Salesforce and AI professionals with 55+ certifications, working across Salesforce, Zoho, AWS and custom platforms
 
 **Hybrid Architecture**
 - Keywords: hybrid, on platform, off platform, flexibility
-- Response: Explains custom mobile/web apps that integrate with Salesforce for on/off-platform flexibility
+- Response: Explains custom mobile/web apps that integrate with your CRM for on/off-platform flexibility
 
 **Voice Solutions**
 - Keywords: voice, hands free, gloves, field workers
