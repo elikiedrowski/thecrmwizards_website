@@ -9,7 +9,7 @@ The site is being repositioned from "Salesforce consultancy" to AI automation an
 | Item | State |
 | --- | --- |
 | Branch | `phase1-copy-refresh`, all four phases plus Lauren's feedback round, committed and pushed |
-| `main` / live site | Merge of `phase1-copy-refresh` in progress. GitHub Pages deploys from `main` only |
+| `main` / live site | `phase1-copy-refresh` merged and deployed October 14, 2026. GitHub Pages deploys from `main` only |
 | Lauren's review | Done. Feedback applied October 13-14, 2026 and approved on the preview |
 | Salesforce Lead Source values | Added (AI Automation, Zoho / Other CRM, E-commerce / Commerce Cloud) |
 
@@ -46,7 +46,7 @@ Applied on the branch after Eli walked through the preview with Lauren:
 - **The roofing client's quoting and document-generation replacement program is not signed.** Keep it off the site until it is.
 - **The resort client has no AI work.** Credit billing automation and the custom booking experience only.
 - **The insurance client's AI receptionist is live.** It was built by Nagy.
-- **The SaaS client's staged refund automation is described as live.** It was expected live the week of September 29. Confirm before merging.
+- **The SaaS client's staged refund automation is live.** Confirmed by Eli on October 14, 2026 before the merge.
 - **Retail site builder, the project management add-on replacement and the roofing extras** come from Eli's own delivery summary, not the project folders.
 - **Never name the third-party tools we replaced** (Eli, October 14, 2026). Say "a paid add-on" or similar.
 - **The retail site builder entry was removed** (Eli, October 14, 2026): it does not tie to a core industry. The SaaS sales productivity engine is its own entry instead.
