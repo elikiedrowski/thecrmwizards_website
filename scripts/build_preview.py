@@ -8,7 +8,6 @@ The preview:
   so pages work on any static host or as a multi-file artifact
 - disables the contact form (empty worker URL, so no leads reach Salesforce)
 - adds a "Preview, not live" banner to every page
-- swaps the externally hosted team photo for a local copy if one is present
 """
 import re
 import shutil
@@ -19,8 +18,6 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAGES = ["index", "about", "capabilities", "contact", "methodology", "our-work", "thank-you"]
 INDUSTRIES = ["field-services", "high-growth-tech", "professional-services", "hospitality-wellness", "non-profits"]
 WORKER = 'data-worker-url="https://crmwizards-form-proxy.eli-kiedrowski12.workers.dev"'
-NAGY_REMOTE = ("https://images.squarespace-cdn.com/content/v1/66d0f259eb23d268bad25a1a/"
-               "b20f1696-7f7c-476c-b3c6-1a8dbf6285f8/Nagy.jpeg")
 BANNER = ('<div style="position:sticky;top:0;z-index:10000;background:#FFF4E0;color:#7A4B00;'
           'text-align:center;font:600 14px/1.4 system-ui,sans-serif;padding:8px 16px;">'
           'Preview of the website refresh branch. Not live. The contact form is disabled here.</div>')
@@ -46,11 +43,8 @@ def main() -> None:
     (out / "industries").mkdir(parents=True, exist_ok=True)
     for d in ["css", "js", "assets/images"]:
         shutil.copytree(ROOT / d, out / d, dirs_exist_ok=True)
-    has_local_nagy = (out / "assets/images/Nagy.webp").exists()
     for p in PAGES:
         html = fix((ROOT / f"{p}.html").read_text(encoding="utf-8"), False)
-        if has_local_nagy:
-            html = html.replace(NAGY_REMOTE, "assets/images/Nagy.webp")
         (out / f"{p}.html").write_text(html, encoding="utf-8")
     for i in INDUSTRIES:
         html = fix((ROOT / f"industries/{i}.html").read_text(encoding="utf-8"), True)

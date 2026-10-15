@@ -151,7 +151,7 @@ function switchHero(option) {
         A: {
             badge: '🚀 AI Automation · CRM Architecture',
             title: 'AI That Actually Does the Work. Built on Your CRM.',
-            subtitle: 'We are The CRM Wizards. We design and build AI automation and CRM architecture for Salesforce, Zoho, AWS and custom platforms. Systems that remove manual work, with guardrails built in, delivered in weeks.',
+            subtitle: 'We are The CRM Wizards. We design and build AI automation and CRM architecture for Salesforce, Zoho, HubSpot and custom platforms. Systems that remove manual work, with guardrails built in, delivered in weeks.',
             primaryBtn: 'See How We Do It',
             secondaryBtn: 'Explore Industries'
         },
@@ -207,11 +207,11 @@ class AIChatbot {
         this.knowledgeBase = {
             work: {
                 keywords: ['what have you built', 'recent work', 'recent project', 'examples', 'case stud', 'portfolio', 'past work', 'who have you worked'],
-                response: "Recent work includes an AI sales productivity engine and a customer service automation suite for a high-growth SaaS company, an AI document-extraction tool and field service automation for a construction firm, an AI receptionist and automated lead intake for an insurance client, a custom project management app inside a professional services firm's CRM, an AI-powered site builder for Salesforce Commerce Cloud, and fundraising automation with donor analytics for a non-profit."
+                response: "Recent work includes an AI sales productivity engine and a customer service automation suite for a high-growth SaaS company, an AI document-extraction tool and field service automation for a construction firm, an AI receptionist and automated lead intake for an insurance client, a custom project management app inside a professional services firm's CRM, and fundraising automation with donor analytics for a non-profit."
             },
             platforms: {
-                keywords: ['zoho', 'aws', 'amazon web', 'commerce cloud', 'other crm', 'platforms', 'besides salesforce', 'not on salesforce', 'custom platform'],
-                response: "Salesforce is where we're deepest, with 55+ certifications and Registered Partner status. We also architect, integrate and build AI automation on Zoho, Salesforce Commerce Cloud, AWS and custom platforms. If your team runs on something else, tell us about it and we'll let you know how we can help."
+                keywords: ['zoho', 'hubspot', 'aws', 'amazon web', 'commerce cloud', 'other crm', 'platforms', 'besides salesforce', 'not on salesforce', 'custom platform'],
+                response: "Salesforce is where we're deepest, with 55+ certifications and Registered Partner status. We also architect, integrate and build AI automation on Zoho, Salesforce Commerce Cloud, HubSpot and custom platforms. If your team runs on something else, tell us about it and we'll let you know how we can help."
             },
             aiAutomation: {
                 keywords: ['ai automation', 'automation', 'automate', 'receptionist', 'triage', 'document extraction', 'ocr', 'lead scoring', 'customer service', 'chatbot', 'artificial intelligence', 'ai solution'],
@@ -231,7 +231,7 @@ class AIChatbot {
             },
             salesforce: {
                 keywords: ['salesforce', 'crm', 'certified', 'platform', 'implementation'],
-                response: "We're Salesforce Registered Partners. Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We handle everything from greenfield implementations to complex migrations, integrations, and custom development. We also work on Zoho, Salesforce Commerce Cloud, AWS and custom platforms."
+                response: "We're Salesforce Registered Partners. Our team holds a combined 55+ Salesforce certifications across Application Architect, System Architect, Platform Developer, and Admin tracks. We handle everything from greenfield implementations to complex migrations, integrations, and custom development. We also work on Zoho, Salesforce Commerce Cloud, HubSpot and custom platforms."
             },
             ai: {
                 keywords: ['ai development', 'ai augmented', 'ai-augmented'],
@@ -239,7 +239,7 @@ class AIChatbot {
             },
             industries: {
                 keywords: ['industry', 'industries', 'field service', 'construction', 'tech startup', 'saas', 'professional services', 'insurance', 'retail', 'hospitality', 'wellness', 'nonprofit', 'non-profit', 'who do you serve'],
-                response: "We serve 5 key industries with specialized solutions: Field Service & Sales, High-Growth Tech, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits. We also work with clients in Construction, Insurance and Retail. See real examples on our Our Work page. Each industry page shows specific use cases tailored to those sectors."
+                response: "We serve 5 key industries with specialized solutions: High-Growth Tech, Field Service & Sales, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits. We also work with clients in Construction, Insurance and Retail. See real examples on our Our Work page. Each industry page shows specific use cases tailored to those sectors."
             },
             speed: {
                 keywords: ['fast', 'quick', 'timeline', 'how long', 'duration', 'weeks', 'months'],
@@ -247,7 +247,7 @@ class AIChatbot {
             },
             capabilities: {
                 keywords: ['capability', 'capabilities', 'what can you do', 'what do you do', 'services', 'offerings', 'solutions'],
-                response: "We have three core capabilities: (1) AI Automation - systems that remove manual work, with guardrails built in, (2) CRM Architecture & Integration - certified Salesforce experts who also deliver on Zoho, Salesforce Commerce Cloud, AWS and custom platforms, and (3) Custom Apps & Platforms - web and mobile apps, in-CRM tools and portals."
+                response: "We have three core capabilities: (1) AI Automation - systems that remove manual work, with guardrails built in, (2) CRM Architecture & Integration - certified Salesforce experts who also deliver on Zoho, Salesforce Commerce Cloud, HubSpot and custom platforms, and (3) Custom Apps & Platforms - web and mobile apps, in-CRM tools and portals."
             },
             mission: {
                 keywords: ['mission', 'why', 'story', 'family'],
@@ -255,7 +255,7 @@ class AIChatbot {
             },
             team: {
                 keywords: ['team', 'who are you', 'about', 'experts', 'wizards'],
-                response: "We're The CRM Wizards - Salesforce and AI professionals with a passion for innovation, based in Colorado. We combine deep Salesforce expertise (55+ certifications) with AI automation and integration work across Zoho, AWS and custom platforms. We're not replacing human expertise, we're amplifying it through our 10x Methodology."
+                response: "We're The CRM Wizards - Salesforce and AI professionals with a passion for innovation, based in Colorado. We combine deep Salesforce expertise (55+ certifications) with AI automation and integration work across Zoho, HubSpot and custom platforms. We're not replacing human expertise, we're amplifying it through our 10x Methodology."
             },
             hybrid: {
                 keywords: ['hybrid', 'on platform', 'off platform', 'flexibility'],
@@ -708,104 +708,6 @@ class VoiceAssistant {
 
 // Expose voice assistant globally for optional use
 window.voiceAssistant = new VoiceAssistant();
-
-// ============================================
-// Exit Intent Popup
-// ============================================
-
-class ExitIntentPopup {
-    constructor() {
-        this.popup = document.getElementById('exitPopup');
-        this.closeBtn = document.getElementById('closeExitPopup');
-        this.form = document.getElementById('exitPopupForm');
-        this.hasShown = localStorage.getItem('exitPopupShown') === 'true';
-        this.mouseY = 0;
-        
-        if (!this.hasShown && this.popup) {
-            this.init();
-        }
-    }
-    
-    init() {
-        // Track mouse movement
-        document.addEventListener('mousemove', (e) => {
-            this.mouseY = e.clientY;
-        });
-        
-        // Detect exit intent (mouse leaving viewport at top)
-        document.addEventListener('mouseout', (e) => {
-            if (e.clientY < 10 && this.mouseY < 10 && !this.hasShown) {
-                this.show();
-            }
-        });
-        
-        // Close popup
-        if (this.closeBtn) {
-            this.closeBtn.addEventListener('click', () => this.close());
-        }
-        
-        // Close on overlay click
-        this.popup.addEventListener('click', (e) => {
-            if (e.target === this.popup) {
-                this.close();
-            }
-        });
-        
-        // Close on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.popup.classList.contains('active')) {
-                this.close();
-            }
-        });
-        
-        // Handle form submission
-        if (this.form) {
-            this.form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleSubmit();
-            });
-        }
-    }
-    
-    show() {
-        if (!this.hasShown && this.popup) {
-            this.popup.classList.add('active');
-            this.hasShown = true;
-            localStorage.setItem('exitPopupShown', 'true');
-        }
-    }
-    
-    close() {
-        if (this.popup) {
-            this.popup.classList.remove('active');
-        }
-    }
-    
-    handleSubmit() {
-        const email = this.form.querySelector('input[name="email"]').value;
-        
-        // Here you would typically send to your email service
-        console.log('Exit popup email captured:', email);
-        
-        // Show success message
-        const popup = this.popup.querySelector('.exit-popup');
-        popup.innerHTML = `
-            <button class="exit-popup-close" onclick="document.getElementById('exitPopup').classList.remove('active')">×</button>
-            <div class="exit-popup-icon">✅</div>
-            <h2>Thank You!</h2>
-            <p>Check your email for your free AI Readiness Assessment and 10x Methodology guide.</p>
-            <p style="margin-top: 2rem;"><a href="contact.html" class="btn btn-primary">Schedule Your Discovery Call</a></p>
-        `;
-        
-        // Auto-close after 5 seconds
-        setTimeout(() => this.close(), 5000);
-    }
-}
-
-// Initialize exit intent popup
-if (document.getElementById('exitPopup')) {
-    new ExitIntentPopup();
-}
 
 // ============================================
 // Utility Functions

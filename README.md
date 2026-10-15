@@ -131,11 +131,11 @@ The chatbot can intelligently respond to questions about:
 
 **Recent Work**
 - Keywords: what have you built, recent work, recent project, examples, case stud, portfolio, past work, who have you worked
-- Response: Summary of recent anonymised client projects across SaaS, construction, insurance, professional services, retail and non-profit
+- Response: Summary of recent anonymized client projects across SaaS, construction, insurance, professional services and non-profit
 
 **Platforms**
-- Keywords: zoho, aws, amazon web, commerce cloud, other crm, platforms, besides salesforce, not on salesforce, custom platform
-- Response: Salesforce is the deepest expertise, with delivery on Zoho, Salesforce Commerce Cloud, AWS and custom platforms too
+- Keywords: zoho, hubspot, aws, amazon web, commerce cloud, other crm, platforms, besides salesforce, not on salesforce, custom platform
+- Response: Salesforce is the deepest expertise, with delivery on Zoho, Salesforce Commerce Cloud, HubSpot and custom platforms too
 
 **AI Automation**
 - Keywords: ai automation, automation, automate, receptionist, triage, document extraction, ocr, lead scoring, customer service, chatbot, artificial intelligence, ai solution
@@ -163,7 +163,7 @@ The chatbot can intelligently respond to questions about:
 
 **Industries**
 - Keywords: industry, industries, field service, construction, tech startup, saas, professional services, insurance, retail, hospitality, wellness, nonprofit, non-profit, who do you serve
-- Response: Lists all 5 key industries served - Field Service & Sales, High-Growth Tech, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits - notes clients in Construction, Insurance and Retail, and points to the Our Work page
+- Response: Lists all 5 key industries served - High-Growth Tech, Field Service & Sales, Professional & Financial Services, Hospitality/Health & Wellness, and Non-Profits - notes clients in Construction, Insurance and Retail, and points to the Our Work page
 
 **Speed & Timeline**
 - Keywords: fast, quick, timeline, how long, duration, weeks, months
@@ -179,7 +179,7 @@ The chatbot can intelligently respond to questions about:
 
 **Team**
 - Keywords: team, who are you, about, experts, wizards
-- Response: Colorado-based Salesforce and AI professionals with 55+ certifications, working across Salesforce, Zoho, AWS and custom platforms
+- Response: Colorado-based Salesforce and AI professionals with 55+ certifications, working across Salesforce, Zoho, HubSpot and custom platforms
 
 **Hybrid Architecture**
 - Keywords: hybrid, on platform, off platform, flexibility
